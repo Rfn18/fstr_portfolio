@@ -98,25 +98,30 @@ export default function ExperienceList() {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], [0, -scrollDistance]);
-
   return (
-    <>
-      <Container className="mx-auto w-full py-0 md:py-0 lg:py-0 px-4 md:px-16 lg:px-24">
-        <h1 className="max-w-2xl text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
-          Transforming ideas into exceptional digital experiences through
-          expertise and innovation
-        </h1>
-      </Container>
+    <div
+      ref={targetRef}
+      className="relative"
+      style={{ height: `${experiences.length * 60}vh` }}
+    >
+      <div className="sticky top-0 flex h-screen flex-col justify-center gap-8 overflow-hidden">
+        <Container className="mx-auto w-full py-0 md:py-0 lg:py-0 px-4 md:px-16 lg:px-24">
+          <h1 className="max-w-2xl text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
+            Transforming ideas into exceptional digital experiences through
+            expertise and innovation
+          </h1>
+        </Container>
 
-      <div ref={targetRef} style={{ height: `${experiences.length * 60}vh` }}>
-        <div className="sticky top-0 flex h-screen items-center">
-          <motion.div ref={trackRef} style={{ x }} className="flex w-max">
-            {experiences.map((exp) => (
-              <ExpCard key={exp.number} {...exp} />
-            ))}
-          </motion.div>
-        </div>
+        <motion.div
+          ref={trackRef}
+          style={{ x }}
+          className="flex w-max will-change-transform ml-24"
+        >
+          {experiences.map((exp) => (
+            <ExpCard key={exp.number} {...exp} />
+          ))}
+        </motion.div>
       </div>
-    </>
+    </div>
   );
 }
