@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { ArrowButton } from "../ui/button";
 
 export function AboutSectionFirst() {
   return (
@@ -16,17 +17,7 @@ export function AboutSectionFirst() {
         vision systems using technologies like Laravel, Next.js, and Python.
       </p>
 
-      <Link href="/about" className="mt-2 flex items-center gap-2 sm:mt-4">
-        <button className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-neutral-900 transition-colors hover:bg-lime-300 sm:px-8 sm:py-3.5 sm:text-base">
-          About Me
-        </button>
-        <button
-          aria-label="Go to about page"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 bg-accent text-surface transition-colors hover:bg-accent/80 sm:h-12 sm:w-12"
-        >
-          <ArrowUpRight className="h-4 w-4 sm:h-5 sm:w-5" />
-        </button>
-      </Link>
+      <ArrowButton href="/about">About Me</ArrowButton>
 
       <div className="absolute inset-x-0 bottom-6 flex items-center justify-between px-4 text-xs text-background/70 sm:bottom-8 sm:px-10 sm:text-sm lg:px-16">
         <a
@@ -49,7 +40,7 @@ export function AboutSectionSecond() {
   return (
     <div className="relative flex flex-col overflow-hidden bg-background py-16 sm:py-20 md:py-28">
       <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
-        <h1 className="whitespace-nowrap text-center text-5xl font-medium text-surface sm:text-7xl lg:text-8xl">
+        <h1 className="animate-marquee whitespace-nowrap text-center text-5xl font-medium text-surface sm:text-7xl lg:text-8xl">
           Fullstack Developer & AI Enthusiast
         </h1>
       </div>
