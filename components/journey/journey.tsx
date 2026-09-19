@@ -45,6 +45,7 @@ const JOURNEY_ITEMS: JourneyItem[] = [
 
 export default function Journey() {
   const wrapperRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
@@ -59,7 +60,6 @@ export default function Journey() {
       const dark = top <= 0 && bottom > window.innerHeight * END_POINT;
       const next = dark ? "dark" : "light";
       if (root.dataset.theme !== next) root.dataset.theme = next;
-      console.log({ top, bottom, vh: window.innerHeight, next });
     };
 
     const onScroll = () => {
@@ -82,40 +82,46 @@ export default function Journey() {
   return (
     <>
       <div ref={wrapperRef}>
-        <Section className="relative overflow-hidden bg-gray-100 pb-0 pt-24 text-black transition-colors duration-700 ease-in-out dark:bg-surface dark:text-white ">
+        <Section className="relative overflow-hidden bg-gray-100 pb-0 pt-20 text-black transition-colors duration-700 ease-in-out md:pt-24 dark:bg-surface dark:text-white">
           <Container className="w-full px-4 md:px-16 lg:px-24">
             <div className="flex w-full justify-center">
-              <h1 className="mb-24 max-w-3xl text-center text-2xl font-medium leading-snug tracking-tight transition-colors duration-700 sm:text-3xl md:mb-32">
+              <h2 className="mb-16 max-w-3xl text-balance text-center text-2xl font-medium leading-snug tracking-tight transition-colors duration-700 sm:text-3xl md:mb-32">
                 Explore the experiences, projects, and technologies that shape
                 how I build.
-              </h1>
+              </h2>
             </div>
 
             <div className="relative mx-auto max-w-6xl">
-              <div className="absolute bottom-0 left-4 top-0 w-px bg-[#d4f534] shadow-none transition-all duration-700 md:left-1/2 md:-translate-x-1/2 dark:shadow-[0_0_6px_rgba(212,245,52,0.45),0_0_18px_rgba(212,245,52,0.18)]" />
+              <div
+                aria-hidden="true"
+                className="absolute bottom-0 left-4 top-0 w-px bg-[#d4f534] shadow-none transition-all duration-700 md:left-1/2 md:-translate-x-1/2 dark:shadow-[0_0_6px_rgba(212,245,52,0.45),0_0_18px_rgba(212,245,52,0.18)]"
+              />
 
-              <div className="relative flex flex-col">
+              <ol className="relative flex flex-col">
                 {JOURNEY_ITEMS.map((item, index) => {
                   const isLeft = index % 2 === 0;
                   const isLast = index === JOURNEY_ITEMS.length - 1;
 
                   return (
-                    <div
+                    <li
                       key={item.title}
                       className={cn(
-                        "relative grid grid-cols-[28px_1fr] md:grid-cols-2",
-                        isLast ? "min-h-0" : "min-h-[220px]",
+                        "relative grid grid-cols-1 md:grid-cols-2",
+                        isLast ? "min-h-0" : "min-h-0 md:min-h-[220px]",
                       )}
                     >
-                      <div className="absolute left-4 top-8 z-20 h-3 w-3 -translate-x-1/2 rounded-full border border-black/40 bg-surface shadow-none transition-all duration-700 md:left-1/2 dark:border-[#d4f534] dark:shadow-[0_0_8px_rgba(212,245,52,0.55)]" />
+                      <div
+                        aria-hidden="true"
+                        className="absolute left-4 top-[9px] z-20 h-3 w-3 -translate-x-1/2 rounded-full border border-black/40 bg-surface shadow-none transition-all duration-700 sm:top-[18px] md:left-1/2 md:top-8 dark:border-[#d4f534] dark:shadow-[0_0_8px_rgba(212,245,52,0.55)]"
+                      />
 
                       <div
                         className={cn(
-                          "col-start-2 pl-10 md:col-start-1 md:row-start-1 md:pl-0 md:pr-20",
-                          isLast ? "pb-0 md:pb-0" : "pb-30 md:pb-52",
+                          "col-start-1 min-w-0 pl-8 sm:pl-10 md:row-start-1 md:pl-0 md:pr-20",
+                          isLast ? "pb-0" : "pb-14 md:pb-52",
                           isLeft
                             ? "block md:text-right"
-                            : "block md:invisible md:pointer-events-none md:h-0",
+                            : "block md:pointer-events-none md:invisible md:h-0",
                         )}
                       >
                         <JourneyContent
@@ -135,10 +141,10 @@ export default function Journey() {
                           <JourneyContent item={item} align="left" />
                         </div>
                       )}
-                    </div>
+                    </li>
                   );
                 })}
-              </div>
+              </ol>
             </div>
           </Container>
         </Section>
@@ -171,19 +177,19 @@ function JourneyContent({ item, align, className }: JourneyContentProps) {
         className,
       )}
     >
-      <h2 className="max-w-xl text-4xl font-medium leading-none tracking-[-0.04em] transition-colors duration-700 sm:text-5xl md:text-6xl">
+      <h3 className="max-w-xl text-balance text-3xl font-medium leading-none tracking-[-0.04em] transition-colors duration-700 sm:text-5xl md:text-6xl">
         {item.title}
-      </h2>
+      </h3>
 
-      <p className="mt-8 max-w-lg text-lg font-light leading-relaxed text-black/50 transition-colors duration-700 sm:text-xl dark:text-white/50">
+      <p className="mt-5 max-w-lg text-base font-light leading-relaxed text-black/50 transition-colors duration-700 sm:text-xl md:mt-8 md:text-lg md:sm:text-xl dark:text-white/50">
         {item.role}
       </p>
 
-      <p className="max-w-xl text-sm leading-7 text-black/55 transition-colors duration-700 sm:text-base dark:text-white/55">
+      <p className="mt-2 max-w-xl text-pretty text-sm leading-7 text-black/55 transition-colors duration-700 sm:text-base md:mt-0 dark:text-white/55">
         {item.description}
       </p>
 
-      <p className="mt-8 text-sm text-black/40 transition-colors duration-700 dark:text-white/40">
+      <p className="mt-5 text-sm text-black/40 transition-colors duration-700 md:mt-8 dark:text-white/40">
         {item.year}
       </p>
     </div>

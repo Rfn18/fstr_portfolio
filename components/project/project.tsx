@@ -5,15 +5,17 @@ import { ArrowButton } from "../ui/button";
 
 function ProjectCard() {
   return (
-    <div>
-      <p className="mb-2 text-xs font-light tracking-wide text-black/60 transition-colors duration-700 sm:text-sm md:text-lg dark:text-white/70">
+    <div className="min-w-0">
+      <p className="mb-2 text-sm font-light tracking-wide text-black/60 transition-colors duration-700 md:text-lg dark:text-white/70">
         Patient Tracker
       </p>
       <Image
         src="/images/laptop.webp"
         width={600}
         height={80}
+        sizes="(min-width: 768px) 50vw, calc(100vw - 2rem)"
         alt="Patient Tracker"
+        className="h-auto max-w-full"
       />
     </div>
   );
@@ -21,19 +23,21 @@ function ProjectCard() {
 
 export default function Project() {
   return (
-    <Section className="bg-gray-100 py-2 text-black transition-colors duration-700 ease-in-out md:py-4 lg:py-4 dark:bg-surface dark:text-white">
+    <Section className="bg-gray-100 py-12 text-black transition-colors duration-700 ease-in-out md:py-4 lg:py-4 dark:bg-surface dark:text-white">
       <Container className="mx-auto w-full px-4 py-0 md:px-16 md:py-0 lg:px-24 lg:py-0">
-        <h1 className="mb-12 max-w-2xl self-start text-2xl font-medium leading-snug tracking-tight transition-colors duration-700 sm:text-3xl">
+        <h2 className="mb-8 max-w-2xl text-balance self-start text-2xl font-medium leading-snug tracking-tight transition-colors duration-700 sm:text-3xl md:mb-12">
           Transforming ideas into exceptional digital experiences through
           expertise and innovation
-        </h1>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+        </h2>
+
+        <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:gap-y-4">
           <ProjectCard />
           <ProjectCard />
           <ProjectCard />
           <ProjectCard />
         </div>
-        <div className="mt-10 flex w-full items-center justify-center">
+
+        <div className="mt-8 flex w-full items-center justify-center md:mt-10">
           <ArrowButton
             href="/projects"
             color="accent"

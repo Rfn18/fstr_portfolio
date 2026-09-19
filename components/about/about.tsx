@@ -7,7 +7,10 @@ export function About() {
     <Section className="bg-surface py-0 px-0 lg:py-0 md:py-0 ">
       <Container className="px-0 md:px-0">
         <AboutSectionFirst />
-        <span className="block w-full h-px bg-background opacity-20" />
+        <span
+          id="explore"
+          className="block w-full h-px scroll-mt-20 bg-background opacity-20"
+        />
         <AboutSectionSecond />
       </Container>
     </Section>
