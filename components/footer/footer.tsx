@@ -50,7 +50,7 @@ export default function Footer() {
     <>
       <FooterBanner />
       <footer className="relative h-svh min-h-[640px] overflow-hidden rounded-t-[2.5rem] bg-surface text-white">
-        <div className="flex flex-col gap-10 px-4 pt-16 md:flex-row md:justify-between md:px-8">
+        <div className="flex flex-col gap-10 px-4 pt-25 md:flex-row md:justify-between md:px-8">
           <div className="flex flex-wrap gap-x-12 gap-y-8">
             <Column title="Links" items={LINKS} />
             <Column title="Socials" items={SOCIALS} />
@@ -83,9 +83,9 @@ export default function Footer() {
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-col items-center">
-          <Robot className="relative -mb-[8vw] h-40 w-40 md:h-56 md:w-56" />
-          <h2 className="translate-y-[12%] z-10 select-none text-[30vw] leading-[0.8] tracking-tighter bg-surface md:text-[24vw]">
-            FSTR
+          <Robot className="relative -mb-[10vw] h-40 w-40 md:h-56 md:w-56" />
+          <h2 className="translate-y-[12%] z-10  select-none text-[30vw] leading-[0.8] tracking-[-20px] md:text-[24vw]">
+            .FST
           </h2>
         </div>
       </footer>

@@ -82,7 +82,7 @@ export default function Journey() {
   return (
     <>
       <div ref={wrapperRef}>
-        <Section className="relative overflow-hidden bg-gray-100 pb-0 pt-24 text-black transition-colors duration-700 ease-in-out dark:bg-surface dark:text-white py-0 sm:py-0 md:py-0 lg:py-0">
+        <Section className="relative overflow-hidden bg-gray-100 pb-0 pt-24 text-black transition-colors duration-700 ease-in-out dark:bg-surface dark:text-white ">
           <Container className="w-full px-4 md:px-16 lg:px-24">
             <div className="flex w-full justify-center">
               <h1 className="mb-24 max-w-3xl text-center text-2xl font-medium leading-snug tracking-tight transition-colors duration-700 sm:text-3xl md:mb-32">

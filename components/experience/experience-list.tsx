@@ -14,7 +14,7 @@ interface ExpCardProps {
 
 function ExpCard({ icon: Icon, number, title, description }: ExpCardProps) {
   return (
-    <div className="w-md shrink-0 border border-border px-8 py-12 first:border-l">
+    <div className="w-md shrink-0 border border-border px-8 py-16 first:border-l">
       <div className="flex flex-col gap-5">
         <div className="flex items-center justify-between">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent">
@@ -102,16 +102,15 @@ export default function ExperienceList() {
     <div
       ref={targetRef}
       className="relative"
-      style={{ height: `${experiences.length * 60}vh` }}
+      style={{ height: `${experiences.length * 80}vh` }}
     >
-      <div className="sticky top-0 flex h-screen flex-col justify-center gap-8 overflow-hidden">
-        <Container className="mx-auto w-full py-0 md:py-0 lg:py-0 px-4 md:px-16 lg:px-24">
-          <h1 className="max-w-2xl text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
-            Transforming ideas into exceptional digital experiences through
-            expertise and innovation
-          </h1>
-        </Container>
-
+      <Container className="mx-auto w-full py-0 md:py-0 lg:py-0 px-4 md:px-16 lg:px-24">
+        <h1 className="max-w-2xl text-2xl font-medium leading-snug tracking-tight sm:text-3xl">
+          Transforming ideas into exceptional digital experiences through
+          expertise and innovation
+        </h1>
+      </Container>
+      <div className="sticky top-0 flex py-8 md:py-12 lg:py-16 flex-col justify-center gap-8 overflow-hidden">
         <motion.div
           ref={trackRef}
           style={{ x }}
