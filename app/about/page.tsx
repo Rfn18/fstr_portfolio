@@ -13,6 +13,8 @@ interface TechnologyProps {
   list: string[];
 }
 
+const GUTTER = "max-w-8xl px-6 md:px-8 lg:px-10";
+
 const paragraphs = [
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem possimus labore modi distinctio voluptatem obcaecati, enim quam quaerat temporibus at recusandae iste delectus aspernatur sed mollitia vel sit laudantium repellendus!",
   "Asperiores aliquid voluptate est maxime veritatis adipisci voluptatem porro sunt, dignissimos cum magnam et perspiciatis possimus cumque quaerat? Lorem ipsum dolor sit amet consectetur adipisicing elit.",
@@ -21,7 +23,7 @@ const paragraphs = [
   "Autem possimus labore modi distinctio voluptatem obcaecati, enim quam quaerat temporibus at recusandae iste delectus aspernatur sed mollitia vel sit laudantium repellendus!",
 ];
 
-const skils = [
+const skills = [
   {
     title: "Web Development",
     description:
@@ -111,10 +113,10 @@ function SkillsCard({ index, title, description }: SkillsProps) {
         {String(index + 1).padStart(2, "0")}
       </span>
       <div className="mt-2 border-t border-surface/20" />
-      <h2 className="mt-6 text-balance text-2xl font-normal tracking-tight text-surface md:text-xl lg:text-2xl">
+      <h3 className="mt-5 text-balance text-xl font-normal tracking-tight text-surface sm:mt-6 sm:text-2xl md:text-xl lg:text-2xl">
         {title}
-      </h2>
-      <p className="mt-4 text-base leading-7 tracking-tight text-surface/60">
+      </h3>
+      <p className="mt-3 text-sm leading-6 tracking-tight text-surface/60 sm:mt-4 sm:text-base sm:leading-7">
         {description}
       </p>
     </div>
@@ -124,14 +126,14 @@ function SkillsCard({ index, title, description }: SkillsProps) {
 function TechnologyCard({ title, list }: TechnologyProps) {
   return (
     <div className="min-w-0">
-      <h3 className="text-xl font-medium tracking-tight text-surface lg:text-2xl">
+      <h3 className="text-lg font-medium tracking-tight text-surface sm:text-xl lg:text-2xl">
         {title}
       </h3>
-      <ul className="mt-5 flex flex-wrap gap-2">
+      <ul className="mt-4 flex flex-wrap gap-2 sm:mt-5">
         {list.map((item) => (
           <li
             key={item}
-            className="rounded-full bg-white/50 px-4 py-2 text-sm leading-none tracking-tight text-surface/60"
+            className="rounded-full bg-white/50 px-3.5 py-1.5 text-[13px] leading-none tracking-tight text-surface/60 sm:px-4 sm:py-2 sm:text-sm"
           >
             {item}
           </li>
@@ -144,78 +146,87 @@ function TechnologyCard({ title, list }: TechnologyProps) {
 export default function About() {
   return (
     <>
-      <Section className="mx-auto max-w-7xl py-12 md:py-16">
-        <h1 className="text-5xl font-light sm:text-6xl lg:text-8xl">
-          About Me
-        </h1>
-        <p className="mt-4 max-w-3xl text-pretty text-base leading-7 tracking-tight text-surface/60">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-          possimus labore modi distinctio voluptatem obcaecati, enim quam
-          quaerat temporibus at recusandae iste delectus aspernatur sed mollitia
-          vel sit laudantium repellendus! Asperiores aliquid voluptate est
-          maxime veritatis adipisci voluptatem porro sunt, dignissimos cum
-          magnam et perspiciatis possimus cumque quaerat?
-        </p>
+      <Section className="pt-24 pb-6 sm:pt-0 sm:pb-8 md:pt-0 md:pb-8 lg:pt-8 lg:pb-10">
+        <Container className={GUTTER}>
+          <h1 className="text-balance self-start text-4xl font-light sm:text-6xl lg:text-[80px]">
+            About Me
+          </h1>
+          <p className="mt-4 max-w-4xl text-pretty text-[15px] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            possimus labore modi distinctio voluptatem obcaecati, enim quam
+            quaerat temporibus at recusandae iste delectus aspernatur sed
+            mollitia vel sit laudantium repellendus! Asperiores aliquid
+            voluptate est maxime veritatis adipisci voluptatem porro sunt,
+            dignissimos cum magnam et perspiciatis possimus cumque quaerat?
+            mollitia vel sit laudantium repellendus! Asperiores aliquid
+            voluptate est maxime veritatis adipisci voluptatem porro sunt,
+            dignissimos cum magnam et perspiciatis possimus cumque quaerat?
+          </p>
+        </Container>
       </Section>
 
-      <div className="overflow-hidden">
-        <p className="animate-marquee whitespace-nowrap text-center text-4xl font-medium text-surface motion-reduce:animate-none sm:text-6xl lg:text-8xl">
+      <div className="overflow-hidden py-2 sm:py-0" aria-hidden="true">
+        <p className="animate-marquee whitespace-nowrap text-center text-3xl font-medium text-surface motion-reduce:animate-none sm:text-6xl lg:text-8xl">
           Fullstack Developer & AI Enthusiast
         </p>
       </div>
 
-      <Section className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10 lg:gap-16">
-          <div className="min-w-0 space-y-4">
-            {paragraphs.map((text, i) => (
-              <p
-                key={i}
-                className="self-start text-pretty text-base leading-7 tracking-tight text-surface/60 sm:text-lg"
-              >
-                {text}
-              </p>
-            ))}
-          </div>
+      {/* Foto + paragraf */}
+      <Section className="py-4 sm:py-4 md:py-4 lg:py-4">
+        <Container className={GUTTER}>
+          <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10 lg:gap-16">
+            <div className="relative order-first aspect-4/5 w-full overflow-hidden rounded-xl sm:aspect-auto sm:h-120 md:order-last md:my-12 md:h-140 md:rounded-none lg:my-16">
+              <Image
+                src="/images/me-sitting.37df8593.webp"
+                alt="Fasterino"
+                fill
+                sizes="(min-width: 1280px) 600px, (min-width: 768px) 45vw, 100vw"
+                className="object-cover object-top"
+              />
+            </div>
 
-          <div className="relative my-0 h-96 w-full overflow-hidden sm:h-[30rem] md:my-12 md:h-140 lg:my-16">
-            <Image
-              src="/images/me-sitting.37df8593.webp"
-              alt="Fasterino"
-              fill
-              sizes="(min-width: 1280px) 600px, (min-width: 768px) 45vw, 100vw"
-              className="object-cover object-top"
-            />
+            <div className="min-w-0 space-y-4 md:order-first">
+              {paragraphs.map((text, i) => (
+                <p
+                  key={i}
+                  className="text-pretty text-[15px] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base"
+                >
+                  {text}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
+        </Container>
       </Section>
 
       <Section>
-        <Container className="px-6 md:px-8 lg:px-10">
-          <div className="grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-16">
-            {skils.map((skil, i) => (
+        <Container className={GUTTER}>
+          <div className="grid gap-8 md:grid-cols-3 md:gap-8 lg:gap-16">
+            {skills.map((skill, i) => (
               <SkillsCard
-                key={skil.title}
+                key={skill.title}
                 index={i}
-                title={skil.title}
-                description={skil.description}
+                title={skill.title}
+                description={skill.description}
               />
             ))}
           </div>
         </Container>
       </Section>
 
+      {/* Technology */}
       <Section>
-        <Container className="px-6 md:px-8 lg:px-10">
+        <Container className={GUTTER}>
           <div className="text-center">
-            <h2 className="text-balance text-3xl font-medium tracking-tight text-surface lg:text-4xl">
+            <h2 className="text-balance text-2xl font-medium tracking-tight text-surface sm:text-3xl lg:text-4xl">
               Technology Arsenal
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-pretty text-sm leading-7 tracking-tight text-surface/60 md:text-base">
+            <p className="mx-auto mt-3 max-w-3xl text-pretty text-sm leading-6 tracking-tight text-surface/60 sm:mt-4 sm:leading-7 md:text-base">
               A comprehensive toolkit for building modern, scalable applications
             </p>
           </div>
 
-          <div className="mt-10 grid gap-x-16 gap-y-10 sm:mt-12 md:grid-cols-2 md:gap-y-12 lg:mt-16 lg:grid-cols-3">
+          <div className="mt-8 grid gap-x-16 gap-y-8 sm:mt-12 sm:gap-y-10 md:grid-cols-2 md:gap-y-12 lg:mt-16 lg:grid-cols-3">
             {technologies.map((tech) => (
               <TechnologyCard
                 key={tech.title}
@@ -227,11 +238,12 @@ export default function About() {
         </Container>
       </Section>
 
-      <div className="mx-4 flex flex-col items-center justify-center rounded-2xl bg-black px-6 py-14 text-gray-100 sm:mx-6 md:mx-10 md:px-10 md:py-20">
-        <h2 className="text-balance text-center text-3xl font-medium tracking-tight lg:text-4xl">
+      {/* CTA */}
+      <div className="mx-4 mb-4 flex flex-col items-center justify-center rounded-2xl bg-black px-5 py-12 text-gray-100 sm:mx-6 sm:mb-6 sm:px-6 md:mx-10 md:mb-10 md:px-10 md:py-20">
+        <h2 className="text-balance text-center text-2xl font-medium tracking-tight sm:text-3xl lg:text-4xl">
           Ready to Build Something Exceptional?
         </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-pretty text-center text-sm leading-7 tracking-tight opacity-80">
+        <p className="mx-auto mt-4 max-w-3xl text-pretty text-center text-sm leading-6 tracking-tight opacity-80 sm:leading-7">
           Whether you need an AI-powered SaaS platform, an immersive 3D
           experience, or a high-performance web application, I bring the
           technical expertise and creative vision to make it happen. Let&apos;s
