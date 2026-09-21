@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { Section } from "../layout/section";
 
 const BAND_A = [
@@ -41,11 +42,15 @@ function Starburst({ className }: { className?: string }) {
 
 function Group({ items }: { items: string[] }) {
   return (
-    <div className="flex shrink-0 items-center gap-10 pr-10" aria-hidden="true">
+    // gap dan pr harus selalu sama supaya loop marquee tidak loncat
+    <div
+      className="flex shrink-0 items-center gap-6 pr-6 sm:gap-10 sm:pr-10"
+      aria-hidden="true"
+    >
       {[...items, ...items].map((text, i) => (
-        <div key={i} className="flex items-center gap-10">
-          <Starburst className="size-9 shrink-0" />
-          <span className="whitespace-nowrap text-2xl font-medium tracking-tight sm:text-3xl">
+        <div key={i} className="flex items-center gap-6 sm:gap-10">
+          <Starburst className="size-6 shrink-0 sm:size-8 md:size-9" />
+          <span className="whitespace-nowrap text-lg font-medium tracking-tight sm:text-2xl md:text-3xl">
             {text}
           </span>
         </div>
@@ -65,12 +70,16 @@ function Band({
 }) {
   return (
     <div
-      className={`absolute left-1/2 top-1/2 w-[150%] -translate-x-1/2 overflow-hidden bg-black py-5 text-white transition-colors duration-700 ${className}`}
+      className={cn(
+        "absolute left-1/2 top-1/2 w-[150%] -translate-x-1/2 overflow-hidden bg-surface py-3 text-gray-100 transition-colors duration-700 sm:py-4 md:py-5",
+        className,
+      )}
     >
       <div
-        className={`flex w-max animate-marquee motion-reduce:animate-none ${
-          reverse ? "[animation-direction:reverse]" : ""
-        }`}
+        className={cn(
+          "flex w-max animate-marquee motion-reduce:animate-none",
+          reverse && "[animation-direction:reverse]",
+        )}
       >
         <Group items={items} />
         <Group items={items} />
@@ -81,13 +90,13 @@ function Band({
 
 export default function FooterBanner() {
   return (
-    <Section className="overflow-hidden bg-gray-100 text-black transition-colors duration-700 dark:bg-surface dark:text-white">
-      <div className="relative h-[360px] w-full md:h-[440px]">
+    <Section className="overflow-hidden bg-gray-100 py-1 text-black transition-colors duration-700 sm:py-2 md:py-4 lg:py-8 dark:bg-surface dark:text-white">
+      <div className="relative h-[200px] w-full sm:h-[240px]">
         <Band items={BAND_A} className="-translate-y-[60%] rotate-[6deg]" />
         <Band
           items={BAND_B}
           reverse
-          className="-translate-y-[40%] -rotate-[6deg]"
+          className="-translate-y-[60%] -rotate-[6deg]"
         />
       </div>
     </Section>
