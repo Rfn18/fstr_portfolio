@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
-import { ArrowButton } from "../ui/ArrowButton";
+import { ArrowButton } from "../ui/arrow-button";
 import ProjectCard from "./project-card";
 
 export default function Project() {

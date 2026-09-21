@@ -1,6 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import { ArrowButton } from "../ui/ArrowButton";
+import { ArrowButton } from "../ui/arrow-button";
 
 export function AboutSectionFirst() {
   return (

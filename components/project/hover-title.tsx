@@ -27,9 +27,8 @@ export default function HoverTitle({
       const split = splitText(el, { chars: { wrap: "clip" } });
       utils.set(split.chars, { y: "100%" });
 
-      // Setiap hover/keluar membuat animasi baru dari posisi huruf saat ini
       const run = (to: "0%" | "100%") => {
-        utils.remove(split.chars); // hentikan animasi yang sedang berjalan
+        utils.remove(split.chars);
         animate(split.chars, {
           y: to,
           duration: reduce ? 1 : 450,

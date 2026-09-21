@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import MobileMenu from "./mobile-menu";
 import { div } from "framer-motion/client";
+import TextHover from "../animation/text-hover";
+import { ArrowButton } from "../ui/arrow-button";
 
 export default function Navbar() {
   return (
@@ -23,25 +25,24 @@ export default function Navbar() {
           </div>
           <ul className="hidden items-center justify-center gap-x-6 text-surface mr-10 md:flex">
             <li className="text-md font-light transition hover:text-muted ">
-              <Link href="/">Home</Link>
+              <TextHover text="Home" href="/" />
             </li>
             <li className="text-md font-light transition hover:text-muted ">
-              <Link href="/about">About</Link>
+              <TextHover text="About" href="/about" />
             </li>
             <li className="text-md font-light transition hover:text-muted ">
-              <Link href="/works">Works</Link>
+              <TextHover text="Works" href="/works" />
             </li>
-            <li className="text-xs font-medium">
-              <Link href="/contact">
-                <div className="flex items-center gap-x-.5">
-                  <h3 className="bg-surface text-white py-3 px-4 rounded-full flex items-center gap-x-2">
-                    Contact
-                  </h3>
-                  <div className="mt-1 bg-surface text-white py-3 px-3 rounded-full flex items-center justify-center">
-                    <ArrowUpRight size={18} />
-                  </div>
-                </div>
-              </Link>
+            <li className="ml-3">
+              <ArrowButton
+                href="/contact"
+                color="dark"
+                size="xs"
+                ariaLabel="Go to contacct page"
+                className="mt-0 sm:mt-0"
+              >
+                Contact
+              </ArrowButton>
             </li>
           </ul>
         </nav>

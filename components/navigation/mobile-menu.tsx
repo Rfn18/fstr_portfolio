@@ -3,6 +3,7 @@
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import TextHover from "../animation/text-hover";
 
 const links = [
   { href: "/", label: "Home" },
@@ -88,10 +89,11 @@ export default function MobileMenu() {
                 <li key={href}>
                   <Link
                     href={href}
+                    data-hover-root
                     onClick={() => setOpen(false)}
                     className="group flex items-center justify-between py-2 text-5xl font-medium tracking-tight sm:text-6xl"
                   >
-                    {label}
+                    <TextHover text={label} mode="root" />
                     <Plus
                       size={18}
                       className="opacity-60 transition group-hover:rotate-90 group-hover:opacity-100"
