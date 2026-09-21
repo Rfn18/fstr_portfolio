@@ -2,8 +2,9 @@
 
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TextHover from "../animation/text-hover";
+import { useMagnetic } from "@/helpers/use-magnetic";
 
 const links = [
   { href: "/", label: "Home" },
@@ -18,6 +19,7 @@ const BAR =
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 200);
@@ -34,33 +36,41 @@ export default function MobileMenu() {
   }, [open]);
 
   const visible = scrolled || open;
+  useMagnetic(wrapRef, 0.6, !open);
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close menu" : "Open menu"}
-        aria-expanded={open}
-        className={`fixed right-6 top-6 md:right-10 md:top-10 z-60 size-14 rounded-3xl bg-surface text-white shadow-lg transition duration-300 ${
+      <div
+        ref={wrapRef}
+        className={`fixed right-6 top-6 z-60 -m-6 p-6 transition duration-300 md:right-10 md:top-10 ${
           visible
             ? "scale-100 opacity-100"
             : "pointer-events-none scale-75 opacity-0 max-md:pointer-events-auto max-md:scale-100 max-md:opacity-100"
         }`}
       >
-        <span
-          className={`${BAR} ${open ? "translate-y-0 rotate-45" : "-translate-y-1.5"}`}
-        />
-        <span className={`${BAR} ${open ? "scale-x-0 opacity-0" : ""}`} />
-        <span
-          className={`${BAR} ${open ? "translate-y-0 -rotate-45" : "translate-y-1.5"}`}
-        />
-      </button>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className={`relative block size-14 rounded-3xl bg-surface text-white transition-[box-shadow] duration-300 ${
+            !open ? "shadow-sm shadow-accent/10" : ""
+          }`}
+        >
+          <span
+            className={`${BAR} ${open ? "translate-y-0 rotate-45" : "-translate-y-1.5"}`}
+          />
+          <span className={`${BAR} ${open ? "scale-x-0 opacity-0" : ""}`} />
+          <span
+            className={`${BAR} ${open ? "translate-y-0 -rotate-45" : "translate-y-1.5"}`}
+          />
+        </button>
+      </div>
 
       <div
         onClick={() => setOpen(false)}
         aria-hidden="true"
-        className={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -74,7 +84,7 @@ export default function MobileMenu() {
             ? "inset(0px 0px 0px 0px round 1.5rem)"
             : "inset(calc(var(--b) - var(--m)) calc(var(--b) - var(--m)) calc(100% - (var(--b) - var(--m)) - 3.5rem) calc(100% - (var(--b) - var(--m)) - 3.5rem) round 1.5rem)",
         }}
-        className={`fixed right-[var(--m)] top-[var(--m)] z-50 max-h-[calc(100dvh_-_2*var(--m))] w-[calc(100%_-_2*var(--m))] max-w-4xl overflow-y-auto bg-surface text-white transition-[clip-path,visibility] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] [--b:1.5rem] [--m:1rem] sm:[--m:1.5rem] md:[--b:2.5rem] motion-reduce:transition-none ${
+        className={`fixed right-[var(--m)] top-[var(--m)] z-50 isolate w-[calc(100%_-_2*var(--m))] max-w-4xl overflow-hidden rounded-3xl bg-surface text-white transition-[clip-path,visibility] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] [--b:1.5rem] [--m:1rem] sm:[--m:1.5rem] md:[--b:2.5rem] motion-reduce:transition-none ${
           open ? "visible" : "invisible"
         }`}
       >
@@ -91,7 +101,7 @@ export default function MobileMenu() {
                     href={href}
                     data-hover-root
                     onClick={() => setOpen(false)}
-                    className="group flex items-center justify-between py-2 text-5xl font-medium tracking-tight sm:text-6xl"
+                    className="group flex items-center justify-between py-2 text-5xl font-medium tracking-tight sm:text-6xl hover:text-gray-200 transition duration-200 ease-in"
                   >
                     <TextHover text={label} mode="root" />
                     <Plus
@@ -124,7 +134,7 @@ export default function MobileMenu() {
           </div>
 
           <div className="mt-10 flex items-center justify-between text-xs text-white/50">
-            <span>Made with ❤️ by FSTR</span>
+            <span>Made with ❤️ by fasterino</span>
             <span>© {new Date().getFullYear()}</span>
           </div>
         </div>

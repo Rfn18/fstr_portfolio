@@ -108,6 +108,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 @theme {
   --animate-marquee: marquee 100s linear infinite;
 

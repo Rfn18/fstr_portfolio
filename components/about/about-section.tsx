@@ -1,20 +1,33 @@
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { ArrowButton } from "../ui/arrow-button";
+import WideningSection from "../animation/widening-section";
+import RevealOnScroll from "../animation/reveal-on-scroll";
+import { SplitLines } from "../animation/split-lines";
 
 export function AboutSectionFirst() {
   return (
     <div className="relative flex min-h-dvh flex-col items-center justify-start gap-6 px-4 pt-20 pb-24 sm:gap-8 sm:px-6 lg:px-8 lg:pb-10">
-      <h1 className="max-w-5xl text-balance text-center text-[clamp(1.5rem,4vw,2rem)] font-light leading-snug tracking-[-0.02em] text-background">
+      <SplitLines
+        as="h1"
+        enter="bottom-=30% top"
+        leave="top+=40% bottom"
+        className="max-w-5xl text-balance text-center text-[clamp(1.5rem,4vw,2rem)] font-light leading-snug tracking-[-0.02em] text-gray-100"
+      >
         I Am Fasterino, A Fullstack Developer crafting fast, scalable, and
         immersive digital experiences that merge creativity with engineering
         precision.
-      </h1>
+      </SplitLines>
 
-      <p className="max-w-2xl text-pretty text-center text-sm font-light leading-relaxed text-background/70 sm:max-w-3xl sm:text-base">
+      <SplitLines
+        as="p"
+        enter="bottom-=30% top"
+        leave="top+=40% bottom"
+        className="max-w-2xl text-pretty text-center text-sm font-light leading-relaxed text-background/70 sm:max-w-3xl sm:text-base"
+      >
         I specialize in building web platforms, backend APIs, and computer
         vision systems using technologies like Laravel, Next.js, and Python.
-      </p>
+      </SplitLines>
 
       <ArrowButton href="/about">About Me</ArrowButton>
 
@@ -40,27 +53,31 @@ export function AboutSectionFirst() {
 
 export function AboutSectionSecond() {
   return (
-    <div className="relative flex flex-col overflow-hidden bg-background py-16 sm:py-20 md:py-28">
+    <WideningSection
+      fromY="150vh"
+      from="70%"
+      className="relative flex flex-col bg-background py-16 sm:py-20 md:py-28 lg:px-24"
+    >
       <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
         <h1 className="animate-marquee whitespace-nowrap text-center text-5xl font-medium text-surface motion-reduce:animate-none sm:text-7xl lg:text-8xl">
           Fullstack Developer & AI Enthusiast
         </h1>
       </div>
 
-      {/* Shared container: padding hanya di bawah 1200px, desktop tetap sama */}
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 min-[1200px]:px-0">
-        <div className="relative mt-12 h-[70svh] max-h-[640px] min-h-[420px] w-full sm:mt-16 sm:h-[80svh] md:mt-30 lg:h-[90vh] lg:max-h-none">
-          <Image
-            src="/images/me-sitting.37df8593.webp"
-            alt="Fasterino"
-            fill
-            priority
-            sizes="(min-width: 1200px) 1152px, 100vw"
-            className="object-cover"
-          />
-        </div>
+      <div className="mx-auto w-full px-4 min-[1200px]:px-0">
+        <RevealOnScroll className="relative mt-12 h-[70svh] max-h-[640px] min-h-[420px] w-full sm:mt-16 sm:h-[80svh] md:mt-30 lg:h-[90vh] lg:max-h-none">
+          <div className="relative h-full w-full">
+            <Image
+              src="/images/me-sitting.37df8593.webp"
+              alt="Fasterino"
+              fill
+              priority
+              sizes="(min-width: 1200px) 1152px, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </RevealOnScroll>
 
-        {/* Content grid */}
         <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 md:mt-10 md:grid-rows-[auto_auto] md:gap-x-16 md:gap-y-10">
           <h2 className="col-span-2 text-balance text-2xl font-medium leading-snug tracking-tight text-neutral-900 sm:text-3xl md:col-span-1 md:row-start-1 md:text-[2rem] lg:text-4xl">
             Driving measurable growth and engagement through thoughtful design
@@ -93,6 +110,6 @@ export function AboutSectionSecond() {
           </div>
         </div>
       </div>
-    </div>
+    </WideningSection>
   );
 }

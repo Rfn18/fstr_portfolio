@@ -7,7 +7,7 @@ import { HeroVideo } from "./hero-video";
 
 export function Hero() {
   return (
-    <Section className="h-svh md:h-[calc(100vh-80px)] md:p-0 md:py-0 lg:py-0">
+    <Section className="h-svh md:h-[calc(100vh-100px)] md:p-0 md:py-0 lg:py-0">
       <HeroVideo />
       <Container className="px-5 md:px-5 lg:px-12">
         <div className="flex h-[50svh] flex-col items-center justify-center gap-8 md:h-auto md:flex-row md:justify-between md:gap-16">

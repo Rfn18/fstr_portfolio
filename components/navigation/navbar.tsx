@@ -1,8 +1,5 @@
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import MobileMenu from "./mobile-menu";
-import { div } from "framer-motion/client";
 import TextHover from "../animation/text-hover";
 import { ArrowButton } from "../ui/arrow-button";
 

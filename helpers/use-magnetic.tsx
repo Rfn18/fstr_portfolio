@@ -6,6 +6,7 @@ import { animate, utils } from "animejs";
 export function useMagnetic(
   ref: RefObject<HTMLElement | null>,
   strength = 0.6,
+  enabled = true,
 ) {
   useEffect(() => {
     const wrap = ref.current;
@@ -17,6 +18,12 @@ export function useMagnetic(
       !matchMedia("(hover: hover)").matches
     )
       return;
+
+    if (!enabled) {
+      utils.remove(el);
+      animate(el, { x: 0, y: 0, duration: 400, ease: "out(3)" });
+      return;
+    }
 
     const onMove = (e: MouseEvent) => {
       const r = wrap.getBoundingClientRect();
@@ -39,5 +46,5 @@ export function useMagnetic(
       wrap.removeEventListener("mouseleave", onLeave);
       utils.remove(el);
     };
-  }, [ref, strength]);
+  }, [ref, strength, enabled]);
 }

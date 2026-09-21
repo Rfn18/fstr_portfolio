@@ -34,7 +34,7 @@ export default function ProjectCard({
 
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 hidden items-center justify-center p-6 sm:flex"
+          className="pointer-events-none absolute inset-0 flex items-center justify-center p-6"
         >
           <HoverTitle
             text={title}

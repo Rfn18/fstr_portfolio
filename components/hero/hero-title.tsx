@@ -6,7 +6,7 @@ export function HeroTitle() {
         Hi! Im Fasterino
       </p>
 
-      <h1 className="max-w-5xl text-balance wrap-break-word text-center text-[clamp(2rem,5vw,7rem)] font-light leading-[1.1] tracking-tight text-surface sm:tracking-[-0.04em] lg:tracking-[-0.08em]">
+      <h1 className="max-w-5xl text-balance wrap-break-word text-center text-[clamp(2rem,4vw,7rem)] font-light leading-[1.1] tracking-tight text-surface sm:tracking-[-0.04em] lg:tracking-[-0.08em]">
         Full-stack Developer
         <br />
         Engineer & AI Enthusiast

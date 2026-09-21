@@ -42,7 +42,6 @@ function Starburst({ className }: { className?: string }) {
 
 function Group({ items }: { items: string[] }) {
   return (
-    // gap dan pr harus selalu sama supaya loop marquee tidak loncat
     <div
       className="flex shrink-0 items-center gap-6 pr-6 sm:gap-10 sm:pr-10"
       aria-hidden="true"

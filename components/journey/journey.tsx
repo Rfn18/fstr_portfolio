@@ -45,36 +45,104 @@ const JOURNEY_ITEMS: JourneyItem[] = [
 
 export default function Journey() {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const fillRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
-    if (!wrapper) return;
+    const list = listRef.current;
+    const fill = fillRef.current;
+    if (!wrapper || !list || !fill) return;
 
     const root = document.documentElement;
     const END_POINT = 0.25;
-    let ticking = false;
+    const ANCHOR = 0.6;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const TAU = reduce ? 0 : 250;
 
-    const update = () => {
-      ticking = false;
+    let target = 0;
+    let current = 0;
+    let last = 0;
+    let raf = 0;
+    let dotRatios: number[] = [];
+
+    const measure = () => {
+      const lr = list.getBoundingClientRect();
+      dotRatios = dotRefs.current.map((d) => {
+        if (!d) return Infinity;
+        const r = d.getBoundingClientRect();
+        return (r.top + r.height / 2 - lr.top) / lr.height;
+      });
+    };
+
+    const render = () => {
+      fill.style.transform = `scaleY(${current})`;
+      dotRefs.current.forEach((d, i) => {
+        if (!d) return;
+        const on = current >= dotRatios[i];
+        if ((d.dataset.active === "true") !== on) d.dataset.active = String(on);
+      });
+    };
+
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 64);
+      last = now;
+      const diff = target - current;
+
+      if (TAU === 0 || Math.abs(diff) < 0.0002) current = target;
+      else current += diff * (1 - Math.exp(-dt / TAU));
+
+      render();
+      raf = current === target ? 0 : requestAnimationFrame(tick);
+    };
+
+    const kick = () => {
+      if (raf) return;
+      last = performance.now();
+      raf = requestAnimationFrame(tick);
+    };
+
+    const compute = () => {
       const { top, bottom } = wrapper.getBoundingClientRect();
       const dark = top <= 0 && bottom > window.innerHeight * END_POINT;
       const next = dark ? "dark" : "light";
       if (root.dataset.theme !== next) root.dataset.theme = next;
+
+      const rect = list.getBoundingClientRect();
+      target = Math.min(
+        1,
+        Math.max(0, (window.innerHeight * ANCHOR - rect.top) / rect.height),
+      );
     };
 
     const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
+      compute();
+      kick();
     };
 
-    update();
+    const onResize = () => {
+      measure();
+      onScroll();
+    };
+
+    measure();
+    compute();
+    current = target;
+    render();
+
+    const ro = new ResizeObserver(onResize);
+    ro.observe(list);
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", onResize);
 
     return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
       delete root.dataset.theme;
     };
   }, []);
@@ -91,11 +159,17 @@ export default function Journey() {
               </h2>
             </div>
 
-            <div className="relative mx-auto max-w-6xl">
+            <div ref={listRef} className="relative mx-auto max-w-6xl">
               <div
                 aria-hidden="true"
-                className="absolute bottom-0 left-4 top-0 w-px bg-[#d4f534] shadow-none transition-all duration-700 md:left-1/2 md:-translate-x-1/2 dark:shadow-[0_0_6px_rgba(212,245,52,0.45),0_0_18px_rgba(212,245,52,0.18)]"
-              />
+                className="absolute bottom-0 left-4 top-0 w-px bg-black/20 transition-colors duration-700 md:left-1/2 md:-translate-x-1/2 dark:bg-white/15"
+              >
+                <div
+                  ref={fillRef}
+                  className="h-full w-full origin-top bg-accent shadow-[0_0_6px_rgba(212,245,52,0.7),0_0_18px_rgba(212,245,52,0.35)] will-change-transform"
+                  style={{ transform: "scaleY(0)" }}
+                />
+              </div>
 
               <ol className="relative flex flex-col">
                 {JOURNEY_ITEMS.map((item, index) => {
@@ -111,8 +185,17 @@ export default function Journey() {
                       )}
                     >
                       <div
+                        ref={(el) => {
+                          dotRefs.current[index] = el;
+                        }}
                         aria-hidden="true"
-                        className="absolute left-4 top-[9px] z-20 h-3 w-3 -translate-x-1/2 rounded-full border border-black/40 bg-surface shadow-none transition-all duration-700 sm:top-[18px] md:left-1/2 md:top-8 dark:border-[#d4f534] dark:shadow-[0_0_8px_rgba(212,245,52,0.55)]"
+                        data-active="false"
+                        className={cn(
+                          "absolute left-4 top-16 z-20 h-3 w-3 -translate-x-1/2 scale-75 rounded-full border border-black/40 bg-surface sm:top-24 md:left-1/2 md:top-32 dark:border-white/30",
+                          "transition-[transform,background-color,border-color,box-shadow] duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]",
+                          "data-[active=true]:scale-100 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:shadow-[0_0_10px_rgba(212,245,52,0.8),0_0_24px_rgba(212,245,52,0.4)]",
+                          "dark:data-[active=true]:border-accent",
+                        )}
                       />
 
                       <div

@@ -120,12 +120,10 @@ export default function ExperienceList() {
       className="relative h-[calc(100svh+var(--n)*40svh)] md:h-[calc(var(--n)*80vh)]"
       style={{ "--n": experiences.length } as CSSProperties}
     >
-      {/* Desktop/tablet: heading di luar sticky (sama seperti awal) */}
       <Container className="mx-auto hidden w-full px-4 py-0 md:block md:px-16 md:py-0 lg:px-24 lg:py-0">
         <h2 className={headingClass}>{headingText}</h2>
       </Container>
 
-      {/* Mobile: panel full layar, heading + card jadi satu, tidak ada ruang kosong */}
       <div className="sticky top-0 flex h-svh flex-col justify-center gap-8 overflow-hidden py-8 md:h-auto md:py-12 lg:py-16">
         <Container className="mx-auto w-full px-4 py-0 md:hidden">
           <h2 className={headingClass}>{headingText}</h2>

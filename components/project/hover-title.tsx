@@ -60,7 +60,7 @@ export default function HoverTitle({
   return (
     <p
       ref={ref}
-      className={`text-center leading-[1.25] font-medium tracking-tight text-[#d7ff3a] ${className ?? ""}`}
+      className={`text-center leading-tight font-medium tracking-tight text-[#d7ff3a] ${className ?? ""}`}
     >
       {text}
     </p>
