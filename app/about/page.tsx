@@ -21,7 +21,7 @@ const paragraphs = [
   "Autem possimus labore modi distinctio voluptatem obcaecati, enim quam quaerat temporibus at recusandae iste delectus aspernatur sed mollitia vel sit laudantium repellendus!",
 ];
 
-const skils = [
+const skils = [ 
   {
     title: "Web Development",
     description:

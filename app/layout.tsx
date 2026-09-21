@@ -4,6 +4,7 @@ import { Poppins, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navigation/navbar";
 import Footer from "@/components/footer/footer";
+import SmoothScroll from "@/components/ui/smooth-scroll";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -36,7 +37,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${geistMono.variable} bg-background text-foreground font-sans transition-colors duration-300`}
       >
         <Navbar />
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
         <Footer />
       </body>
     </html>
