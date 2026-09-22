@@ -13,8 +13,11 @@ export function Robot({ className }: { className?: string }) {
     <div className={className}>
       <div className="absolute left-1/2 top-1/2 h-[1200px] w-[1200px] -translate-x-1/2 -translate-y-1/2 scale-[0.25] md:scale-[0.35]">
         <Spline
-          scene="https://prod.spline.design/TO2L3zP7VWvApteW/scene.splinecode"
-          onLoad={(app: Application) => app.setZoom(1.2)}
+          scene="https://prod.spline.design/TO2L3zP7VWvApteW/scene.splinecode?v=999"
+          onLoad={(app: Application) => {
+            console.log("Spline loaded");
+            app.setZoom(1.2);
+          }}
         />
       </div>
     </div>

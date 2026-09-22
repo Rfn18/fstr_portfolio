@@ -4,6 +4,7 @@ import { LocalTime } from "../../helpers/local-time";
 import { Robot } from "@/helpers/robot";
 import { DesktopOnly } from "@/helpers/desktop-only";
 import CurvedSection from "../animation/curved-section";
+import { HoverSwapPill } from "../animation/hover-swap-pil";
 
 const LINKS = [
   { label: "Home", href: "/" },
@@ -20,7 +21,7 @@ const SOCIALS = [
 ];
 
 const pillClass =
-  "rounded-full border border-white/80 px-6 py-3 text-center text-sm transition-colors hover:bg-white hover:text-black sm:text-left";
+  "rounded-full border border-white/80 px-6 py-3 text-center text-sm";
 
 function Column({
   title,
@@ -77,13 +78,18 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Section */}
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:gap-4 md:mt-16">
-              <a href="tel:+620000000000" className={pillClass}>
-                +62 000 0000 0000
-              </a>
-              <a href="mailto:contact@example.com" className={pillClass}>
-                contact@example.com
-              </a>
+              <HoverSwapPill
+                href="tel:+620000000000"
+                label="+62 8950 6027 877"
+                hoverLabel="+62 8950 6027 877"
+              />
+              <HoverSwapPill
+                href="mailto:rinofaster89@gmail.com"
+                label="rinofaster89@gmail.com"
+                hoverLabel="rinofaster89@gmail.com"
+              />
             </div>
           </div>
 

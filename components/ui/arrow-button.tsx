@@ -109,7 +109,6 @@ export function ArrowButton({
           )}
         >
           <span className={cn(fillBase, c.fill)} />
-          {/* arrow lama: keluar ke kanan atas */}
           <span
             className={cn(
               slide,

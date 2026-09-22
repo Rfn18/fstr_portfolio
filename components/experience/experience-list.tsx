@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Container } from "../layout/container";
 import { LucideIcon, Map, LayoutTemplate, Boxes, Rocket } from "lucide-react";
+import { SplitLines } from "../animation/split-lines";
 
 interface ExpCardProps {
   icon: LucideIcon;
@@ -121,12 +122,16 @@ export default function ExperienceList() {
       style={{ "--n": experiences.length } as CSSProperties}
     >
       <Container className="mx-auto hidden w-full px-4 py-0 md:block md:px-16 md:py-0 lg:px-24 lg:py-0">
-        <h2 className={headingClass}>{headingText}</h2>
+        <SplitLines as={"h2"} className={headingClass}>
+          {headingText}
+        </SplitLines>
       </Container>
 
       <div className="sticky top-0 flex h-svh flex-col justify-center gap-8 overflow-hidden py-8 md:h-auto md:py-12 lg:py-16">
         <Container className="mx-auto w-full px-4 py-0 md:hidden">
-          <h2 className={headingClass}>{headingText}</h2>
+          <SplitLines as={"h2"} className={headingClass}>
+            {headingText}
+          </SplitLines>
         </Container>
 
         <motion.div

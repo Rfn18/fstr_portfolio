@@ -109,15 +109,20 @@ body {
   display: none;
 }
 
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
 @theme {
   --animate-marquee: marquee 100s linear infinite;
-
+  --animate-marquee-project: marquee 40s linear infinite;
   @keyframes marquee {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
   }
 }

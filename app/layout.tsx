@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/navigation/navbar";
 import Footer from "@/components/footer/footer";
 import SmoothScroll from "@/components/ui/smooth-scroll";
+import CustomCursor from "@/components/ui/custom-cursor";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${geistMono.variable} bg-background text-foreground font-sans transition-colors duration-300`}
       >
+        {/* <CustomCursor /> */}
         <Navbar />
         <SmoothScroll>{children}</SmoothScroll>
         <Footer />

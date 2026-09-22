@@ -68,7 +68,7 @@ export function AboutSectionSecond() {
         <RevealOnScroll className="relative mt-12 h-[70svh] max-h-[640px] min-h-[420px] w-full sm:mt-16 sm:h-[80svh] md:mt-30 lg:h-[90vh] lg:max-h-none">
           <div className="relative h-full w-full">
             <Image
-              src="/images/me-sitting.37df8593.webp"
+              src="/images/me-sitting.jpg"
               alt="Fasterino"
               fill
               priority
@@ -79,17 +79,23 @@ export function AboutSectionSecond() {
         </RevealOnScroll>
 
         <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 md:mt-10 md:grid-rows-[auto_auto] md:gap-x-16 md:gap-y-10">
-          <h2 className="col-span-2 text-balance text-2xl font-medium leading-snug tracking-tight text-neutral-900 sm:text-3xl md:col-span-1 md:row-start-1 md:text-[2rem] lg:text-4xl">
+          <SplitLines
+            as={"h2"}
+            className="col-span-2 text-balance text-2xl font-medium leading-snug tracking-tight text-neutral-900 sm:text-3xl md:col-span-1 md:row-start-1 md:text-[2rem] lg:text-4xl"
+          >
             Driving measurable growth and engagement through thoughtful design
             and engineering.
-          </h2>
+          </SplitLines>
 
-          <p className="col-span-2 text-pretty text-base leading-relaxed text-neutral-700 sm:text-lg md:col-span-1 md:row-start-1 md:self-center">
+          <SplitLines
+            as={"p"}
+            className="col-span-2 text-pretty text-base leading-relaxed text-neutral-700 sm:text-lg md:col-span-1 md:row-start-1 md:self-center"
+          >
             Every product I build starts with understanding user goals and
             translating them into intuitive, high-performance experiences. From
             concept to launch, I focus on meaningful results—boosting user
             engagement, retention, and overall business impact.
-          </p>
+          </SplitLines>
 
           <div className="col-span-1 flex min-w-0 flex-col gap-2 border-t border-neutral-400/60 pt-6 md:row-start-2">
             <span className="text-xs font-medium tracking-wide text-neutral-500 sm:text-sm">

@@ -1,4 +1,3 @@
-// components/text-hover.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -52,7 +51,7 @@ export default function TextHover({
           y: to,
           duration: reduce ? 1 : entering ? 450 : 250,
           ease: "out(3)",
-          delay: entering && !reduce ? stagger(20) : 0,
+          delay: entering && !reduce ? stagger(50) : 0,
         });
       };
       const enter = () => run("-100%");

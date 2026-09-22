@@ -19,6 +19,7 @@ const BAR =
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [magneticReady, setMagneticReady] = useState(true);
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,14 +30,16 @@ export default function MobileMenu() {
   }, []);
 
   useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    if (open) {
+      setMagneticReady(false);
+      return;
+    }
+    const t = setTimeout(() => setMagneticReady(true), 700);
+    return () => clearTimeout(t);
   }, [open]);
 
   const visible = scrolled || open;
-  useMagnetic(wrapRef, 0.6, !open);
+  useMagnetic(wrapRef, 0.6, magneticReady);
 
   return (
     <>

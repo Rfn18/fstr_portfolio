@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
+import { SplitLines } from "../animation/split-lines";
 
 interface JourneyItem {
   year: string;
@@ -153,10 +154,13 @@ export default function Journey() {
         <Section className="relative overflow-hidden bg-gray-100 pb-0 pt-20 text-black transition-colors duration-700 ease-in-out md:pt-24 dark:bg-surface dark:text-white">
           <Container className="w-full px-4 md:px-16 lg:px-24">
             <div className="flex w-full justify-center">
-              <h2 className="mb-16 max-w-3xl text-balance text-center text-2xl font-medium leading-snug tracking-tight transition-colors duration-700 sm:text-3xl md:mb-32">
+              <SplitLines
+                as={"h2"}
+                className="mb-16 max-w-3xl text-balance text-center text-2xl font-medium leading-snug tracking-tight transition-colors duration-700 sm:text-3xl md:mb-32"
+              >
                 Explore the experiences, projects, and technologies that shape
                 how I build.
-              </h2>
+              </SplitLines>
             </div>
 
             <div ref={listRef} className="relative mx-auto max-w-6xl">
@@ -260,21 +264,33 @@ function JourneyContent({ item, align, className }: JourneyContentProps) {
         className,
       )}
     >
-      <h3 className="max-w-xl text-balance text-3xl font-medium leading-none tracking-[-0.04em] transition-colors duration-700 sm:text-5xl md:text-6xl">
+      <SplitLines
+        as={"h3"}
+        className="max-w-xl text-balance text-3xl font-medium leading-none tracking-[-0.04em] transition-colors duration-700 sm:text-5xl md:text-6xl"
+      >
         {item.title}
-      </h3>
+      </SplitLines>
 
-      <p className="mt-5 max-w-lg text-base font-light leading-relaxed text-black/50 transition-colors duration-700 sm:text-xl md:mt-8 md:text-lg md:sm:text-xl dark:text-white/50">
+      <SplitLines
+        as={"p"}
+        className="mt-5 max-w-lg text-base font-light leading-relaxed text-black/50 transition-colors duration-700 sm:text-xl md:mt-8 md:text-lg md:sm:text-xl dark:text-white/50"
+      >
         {item.role}
-      </p>
+      </SplitLines>
 
-      <p className="mt-2 max-w-xl text-pretty text-sm leading-7 text-black/55 transition-colors duration-700 sm:text-base md:mt-0 dark:text-white/55">
+      <SplitLines
+        as={"p"}
+        className="mt-2 max-w-xl text-pretty text-sm leading-7 text-black/55 transition-colors duration-700 sm:text-base md:mt-0 dark:text-white/55"
+      >
         {item.description}
-      </p>
+      </SplitLines>
 
-      <p className="mt-5 text-sm text-black/40 transition-colors duration-700 md:mt-8 dark:text-white/40">
+      <SplitLines
+        as={"p"}
+        className="mt-5 text-sm text-black/40 transition-colors duration-700 md:mt-8 dark:text-white/40"
+      >
         {item.year}
-      </p>
+      </SplitLines>
     </div>
   );
 }
