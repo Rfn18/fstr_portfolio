@@ -108,10 +108,27 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-
-html.custom-cursor-active,
-html.custom-cursor-active * {
+.custom-cursor-active,
+.custom-cursor-active * {
   cursor: none !important;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e7e7e7;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease-out;
+  will-change: transform;
 }
 
 @theme {

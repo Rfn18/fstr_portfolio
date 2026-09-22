@@ -37,7 +37,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${geistMono.variable} bg-background text-foreground font-sans transition-colors duration-300`}
       >
-        {/* <CustomCursor /> */}
+        <CustomCursor />
         <Navbar />
         <SmoothScroll>{children}</SmoothScroll>
         <Footer />
