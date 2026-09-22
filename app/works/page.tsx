@@ -18,16 +18,16 @@ const GUTTER = "max-w-8xl px-6 md:px-8 lg:px-10";
 const projects = [
   {
     title: "CCTV Face Recognition",
-    image: "/images/cctv.png",
+    image: "/images/laptop.webp",
     category: "Computer Vision",
   },
   {
     title: "Pasient Tracker",
-    image: "/images/patient-tracker.png",
+    image: "/images/patient-tracker.webp",
     category: "Landing Page",
   },
-  { title: "Medistaff", image: "/images/medistaff.png", category: "Web App" },
-  { title: "Schetelebot", image: "/images/schetelebot.png", category: "Bot" },
+  { title: "Medistaff", image: "/images/medistaff.webp", category: "Web App" },
+  { title: "Schetelebot", image: "/images/schetelebot.webp", category: "Bot" },
 ];
 
 export default function Work() {

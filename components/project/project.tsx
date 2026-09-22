@@ -8,16 +8,16 @@ import { SplitLines } from "../animation/split-lines";
 const projects = [
   {
     title: "CCTV Face Recognition",
-    image: "/images/cctv.png",
+    image: "/images/laptop.png",
     category: "Computer Vision",
   },
   {
     title: "Pasient Tracker",
-    image: "/images/patient-tracker.png",
+    image: "/images/laptop.webp",
     category: "Landing Page",
   },
-  { title: "Medistaff", image: "/images/medistaff.png", category: "Web App" },
-  { title: "Schetelebot", image: "/images/schetelebot.png", category: "Bot" },
+  { title: "Medistaff", image: "/images/laptop.webp", category: "Web App" },
+  { title: "Schetelebot", image: "/images/laptop  .webp", category: "Bot" },
 ];
 
 export default function Project() {
