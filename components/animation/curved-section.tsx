@@ -1,22 +1,13 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useRef } from "react";
 import {
   motion,
   useScroll,
   useTransform,
   type UseScrollOptions,
 } from "framer-motion";
-
-type Props = {
-  children: ReactNode;
-  variant?: "top" | "footer";
-  className?: string;
-  fillClassName?: string;
-  maxHeight?: string;
-  offset?: UseScrollOptions["offset"];
-  shadow?: boolean;
-};
+import type { CurvedSectionProps } from "@/props";
 
 const PRESET = {
   top: {
@@ -41,7 +32,7 @@ export default function CurvedSection({
   maxHeight = "8vw",
   offset,
   shadow,
-}: Props) {
+}: CurvedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const preset = PRESET[variant];
 

@@ -3,14 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { animate, splitText, stagger, utils } from "animejs";
-
-type Props = {
-  text: string;
-  href?: string;
-  className?: string;
-  mode?: "self" | "root";
-  onClick?: () => void;
-};
+import type { TextHoverProps } from "@/props";
 
 export default function TextHover({
   text,
@@ -18,7 +11,7 @@ export default function TextHover({
   className,
   mode = "self",
   onClick,
-}: Props) {
+}: TextHoverProps) {
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {

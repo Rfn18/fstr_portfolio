@@ -1,7 +1,8 @@
 // helpers/desktop-only.tsx
 "use client";
 
-import { useSyncExternalStore, type ReactNode } from "react";
+import { useSyncExternalStore } from "react";
+import type { DesktopOnlyProps } from "@/props";
 
 function useMediaQuery(query: string) {
   return useSyncExternalStore(
@@ -18,9 +19,6 @@ function useMediaQuery(query: string) {
 export function DesktopOnly({
   children,
   query = "(min-width: 768px)",
-}: {
-  children: ReactNode;
-  query?: string;
-}) {
+}: DesktopOnlyProps) {
   return useMediaQuery(query) ? <>{children}</> : null;
 }

@@ -3,13 +3,7 @@
 import { useRef } from "react";
 import { animate, spring, utils } from "animejs";
 import { useMagnetic } from "@/helpers/use-magnetic";
-
-type HoverSwapPillProps = {
-  href: string;
-  label: string;
-  hoverLabel: string;
-  className?: string;
-};
+import type { HoverSwapPillProps } from "@/props";
 
 const EASE = spring({
   bounce: 0.15,

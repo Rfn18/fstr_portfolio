@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import TextHover from "../animation/text-hover";
 import { useRef } from "react";
 import { useMagnetic } from "@/helpers/use-magnetic";
+import type { ArrowButtonProps } from "@/props";
 
 const colors = {
   accent: {
@@ -52,15 +53,6 @@ const fillBase =
 
 const slide =
   "absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out";
-
-type ArrowButtonProps = {
-  href: string;
-  children: React.ReactNode;
-  color?: keyof typeof colors;
-  size?: keyof typeof sizes;
-  ariaLabel?: string;
-  className?: string;
-};
 
 export function ArrowButton({
   href,

@@ -1,22 +1,13 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useRef } from "react";
 import {
   motion,
   useScroll,
   useTransform,
   useSpring,
-  type UseScrollOptions,
 } from "framer-motion";
-
-type Props = {
-  children: ReactNode;
-  className?: string;
-  from?: number;
-  to?: number;
-  radius?: string;
-  offset?: UseScrollOptions["offset"];
-};
+import type { WideningImageProps } from "@/props";
 
 export default function WideningImage({
   children,
@@ -25,7 +16,7 @@ export default function WideningImage({
   to = 1,
   radius = "48px",
   offset = ["start end", "end start"],
-}: Props) {
+}: WideningImageProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress: raw } = useScroll({ target: ref, offset });
 

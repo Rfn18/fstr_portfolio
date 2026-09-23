@@ -4,18 +4,10 @@ import WideningImage from "@/components/animation/widening-image";
 import WideningSection from "@/components/animation/widening-section";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { SkillsCard } from "@/components/card/skills-card";
+import { TechnologyCard } from "@/components/card/technology-card";
+import type { TechnologyProps } from "@/props";
 import Image from "next/image";
-
-interface SkillsProps {
-  index: number;
-  title: string;
-  description: string;
-}
-
-interface TechnologyProps {
-  title: string;
-  list: string[];
-}
 
 const GUTTER = "max-w-8xl px-6 md:px-8 lg:px-10";
 
@@ -110,42 +102,6 @@ const technologies: TechnologyProps[] = [
   },
 ];
 
-function SkillsCard({ index, title, description }: SkillsProps) {
-  return (
-    <div className="min-w-0">
-      <span className="text-sm text-surface/60">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-      <div className="mt-2 border-t border-surface/20" />
-      <h3 className="mt-5 text-balance text-xl font-normal tracking-tight text-surface sm:mt-6 sm:text-2xl md:text-xl lg:text-2xl">
-        {title}
-      </h3>
-      <p className="mt-3 text-sm leading-6 tracking-tight text-surface/60 sm:mt-4 sm:text-base sm:leading-7">
-        {description}
-      </p>
-    </div>
-  );
-}
-
-function TechnologyCard({ title, list }: TechnologyProps) {
-  return (
-    <div className="min-w-0">
-      <h3 className="text-lg font-medium tracking-tight text-surface sm:text-xl lg:text-2xl">
-        {title}
-      </h3>
-      <ul className="mt-4 flex flex-wrap gap-2 sm:mt-5">
-        {list.map((item) => (
-          <li
-            key={item}
-            className="rounded-full bg-white/50 hover:bg-surface hover:text-white transition duration-300 ease-in-out px-3.5 py-1.5 text-[13px] leading-none tracking-tight text-surface/60 sm:px-4 sm:py-2 sm:text-sm"
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export default function About() {
   return (

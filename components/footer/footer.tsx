@@ -5,15 +5,16 @@ import { Robot } from "@/helpers/robot";
 import { DesktopOnly } from "@/helpers/desktop-only";
 import CurvedSection from "../animation/curved-section";
 import { HoverSwapPill } from "../animation/hover-swap-pil";
+import type { FooterColumnProps, FooterNavItem } from "@/props";
 
-const LINKS = [
+const LINKS: FooterNavItem[] = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
-const SOCIALS = [
+const SOCIALS: FooterNavItem[] = [
   { label: "Email", href: "mailto:contact@example.com" },
   { label: "LinkedIn", href: "https://linkedin.com" },
   { label: "WhatsApp", href: "https://wa.me/620000000000" },
@@ -23,13 +24,7 @@ const SOCIALS = [
 const pillClass =
   "rounded-full border border-white/80 px-6 py-3 text-center text-sm";
 
-function Column({
-  title,
-  items,
-}: {
-  title: string;
-  items: { label: string; href: string }[];
-}) {
+function Column({ title, items }: FooterColumnProps) {
   return (
     <div>
       <p className="mb-3 text-xs uppercase text-white/50">{title}</p>

@@ -4,12 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HoverTitle from "./hover-title";
-
-interface ProjectProps {
-  title?: string;
-  image?: string;
-  category?: string;
-}
+import type { ProjectProps, MarqueeItemProps } from "@/props";
 
 export default function ProjectCard({
   title = "Patient Tracker",
@@ -114,10 +109,7 @@ export function ProjectCardList({
 function MarqueeItem({
   title,
   image = "/images/laptop.webp",
-}: {
-  title: string;
-  image?: string;
-}) {
+}: MarqueeItemProps) {
   return (
     <div className="flex shrink-0 items-center gap-10">
       <div className="relative h-12 w-24 shrink-0 overflow-hidden rounded-full md:h-12 md:w-42">

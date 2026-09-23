@@ -2,14 +2,12 @@
 
 import { animate, splitText, stagger, utils } from "animejs";
 import { useEffect, useRef } from "react";
+import type { HoverTitleProps } from "@/props";
 
 export default function HoverTitle({
   text,
   className,
-}: {
-  text: string;
-  className?: string;
-}) {
+}: HoverTitleProps) {
   const ref = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {

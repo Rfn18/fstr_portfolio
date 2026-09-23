@@ -1,22 +1,12 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useRef } from "react";
 import {
   motion,
   useScroll,
   useTransform,
-  type UseScrollOptions,
 } from "framer-motion";
-
-type Props = {
-  children: ReactNode;
-  className?: string;
-  wrapperClassName?: string;
-  from?: string; // lebar awal, mis. "75%"
-  fromY?: string; // posisi awal (turun), mis. "15vh"
-  radius?: string;
-  offset?: UseScrollOptions["offset"];
-};
+import type { WideningSectionProps } from "@/props";
 
 export default function WideningSection({
   children,
@@ -26,7 +16,7 @@ export default function WideningSection({
   fromY = "15vh",
   radius = "48px",
   offset = ["start end", "start 20%"],
-}: Props) {
+}: WideningSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset });
 

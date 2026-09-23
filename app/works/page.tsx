@@ -12,10 +12,11 @@ import {
   gridItemVariants,
   listItemVariants,
 } from "@/helpers/project-animation";
+import type { ProjectItem } from "@/props";
 
 const GUTTER = "max-w-8xl px-6 md:px-8 lg:px-10";
 
-const projects = [
+const projects: ProjectItem[] = [
   {
     title: "CCTV Face Recognition",
     image: "/images/laptop.webp",

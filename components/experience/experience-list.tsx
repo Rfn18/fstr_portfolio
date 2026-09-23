@@ -3,15 +3,9 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Container } from "../layout/container";
-import { LucideIcon, Map, LayoutTemplate, Boxes, Rocket } from "lucide-react";
+import { Map, LayoutTemplate, Boxes, Rocket } from "lucide-react";
 import { SplitLines } from "../animation/split-lines";
-
-interface ExpCardProps {
-  icon: LucideIcon;
-  number: string;
-  title: string;
-  description: string;
-}
+import type { ExpCardProps } from "@/props";
 
 function ExpCard({ icon: Icon, number, title, description }: ExpCardProps) {
   return (

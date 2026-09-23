@@ -1,20 +1,12 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useRef } from "react";
 import {
   motion,
   useScroll,
   useTransform,
-  type UseScrollOptions,
 } from "framer-motion";
-
-type Props = {
-  children: ReactNode;
-  className?: string;
-  from?: number; 
-  axis?: "x" | "y" | "both";
-  offset?: UseScrollOptions["offset"];
-};
+import type { RevealOnScrollProps } from "@/props";
 
 export default function RevealOnScroll({
   children,
@@ -22,7 +14,7 @@ export default function RevealOnScroll({
   from = 35,
   axis = "x",
   offset = ["start end", "center center"],
-}: Props) {
+}: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset });
 

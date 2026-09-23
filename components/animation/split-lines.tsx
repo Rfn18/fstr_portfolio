@@ -1,18 +1,9 @@
 // components/animation/split-lines.tsx
 "use client";
 
-import { useEffect, useRef, type ElementType, type ReactNode } from "react";
+import { useEffect, useRef } from "react";
 import { animate, stagger, splitText, onScroll, utils } from "animejs";
-
-type SplitLinesProps = {
-  children: ReactNode;
-  as?: ElementType;
-  className?: string;
-  duration?: number;
-  stagger?: number; // ms antar baris
-  enter?: string; // titik muncul
-  leave?: string; // titik hilang saat elemen lewat ke atas layar
-};
+import type { SplitLinesProps } from "@/props";
 
 export function SplitLines({
   children,

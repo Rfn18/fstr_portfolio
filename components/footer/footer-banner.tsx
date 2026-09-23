@@ -1,5 +1,10 @@
 import { cn } from "@/lib/utils";
 import { Section } from "../layout/section";
+import type {
+  StarburstProps,
+  FooterBannerGroupProps,
+  FooterBannerBandProps,
+} from "@/props";
 
 const BAND_A = [
   "Driven by Passion, Built with Code",
@@ -13,7 +18,7 @@ const BAND_B = [
   "Innovative Self-Made Creations",
 ];
 
-function Starburst({ className }: { className?: string }) {
+function Starburst({ className }: StarburstProps) {
   return (
     <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
       {Array.from({ length: 32 }).map((_, i) => (
@@ -40,7 +45,7 @@ function Starburst({ className }: { className?: string }) {
   );
 }
 
-function Group({ items }: { items: string[] }) {
+function Group({ items }: FooterBannerGroupProps) {
   return (
     <div
       className="flex shrink-0 items-center gap-6 pr-6 sm:gap-10 sm:pr-10"
@@ -62,11 +67,7 @@ function Band({
   items,
   className,
   reverse = false,
-}: {
-  items: string[];
-  className?: string;
-  reverse?: boolean;
-}) {
+}: FooterBannerBandProps) {
   return (
     <div
       className={cn(

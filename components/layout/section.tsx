@@ -1,10 +1,5 @@
 import { cn } from "@/lib/utils";
-
-type SectionProps = {
-  children: React.ReactNode;
-  className?: string;
-  id?: string;
-};
+import type { SectionProps } from "@/props";
 
 export function Section({ children, className, id }: SectionProps) {
   return (

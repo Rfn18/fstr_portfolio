@@ -5,13 +5,7 @@ import { cn } from "@/lib/utils";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
 import { SplitLines } from "../animation/split-lines";
-
-interface JourneyItem {
-  year: string;
-  title: string;
-  role: string;
-  description: string;
-}
+import type { JourneyItem, JourneyContentProps } from "@/props";
 
 const JOURNEY_ITEMS: JourneyItem[] = [
   {
@@ -243,12 +237,6 @@ export default function Journey() {
       </Section>
     </>
   );
-}
-
-interface JourneyContentProps {
-  item: JourneyItem;
-  align: "left" | "right";
-  className?: string;
 }
 
 function JourneyContent({ item, align, className }: JourneyContentProps) {

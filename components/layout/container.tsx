@@ -1,9 +1,5 @@
 import { cn } from "@/lib/utils";
-
-type ContainerProps = {
-  children: React.ReactNode;
-  className?: string;
-};
+import type { ContainerProps } from "@/props";
 
 export function Container({ children, className }: ContainerProps) {
   return (

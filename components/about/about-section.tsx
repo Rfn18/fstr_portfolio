@@ -31,7 +31,7 @@ export function AboutSectionFirst() {
 
       <ArrowButton href="/about">About Me</ArrowButton>
 
-      <div className="absolute inset-x-0 bottom-6 flex items-center justify-between px-4 pb-[env(safe-area-inset-bottom)] text-xs text-background/70 sm:bottom-8 sm:px-10 sm:text-sm lg:px-16">
+      <div className="absolute inset-x-0 bottom-6 flex items-center justify-between px-4 pb-[env(safe-area-inset-bottom)] text-xs text-background/70 sm:bottom-8 sm:px-10 sm:text-sm lg:px-24">
         <a
           href="#explore"
           className="-my-2 flex items-center gap-1.5 py-2 hover:text-background"

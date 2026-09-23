@@ -4,8 +4,9 @@ import { Section } from "../layout/section";
 import { ArrowButton } from "../ui/arrow-button";
 import ProjectCard from "./project-card";
 import { SplitLines } from "../animation/split-lines";
+import type { ProjectItem } from "@/props";
 
-const projects = [
+const projects: ProjectItem[] = [
   {
     title: "CCTV Face Recognition",
     image: "/images/laptop.png",
