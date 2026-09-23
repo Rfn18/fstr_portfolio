@@ -14,11 +14,12 @@ export default function CustomCursor() {
     if (!ring) return;
 
     let rafId: number;
+    let fullscreen = false;
 
     const handleMouseMove = (e: MouseEvent) => {
       target.current.x = e.clientX;
       target.current.y = e.clientY;
-      ring.style.opacity = "1";
+      if (!fullscreen) ring.style.opacity = "1";
     };
 
     const handleMouseLeave = () => {
@@ -26,7 +27,6 @@ export default function CustomCursor() {
     };
 
     const handleMouseDown = () => {
-      ring.style.transform += " scale(0.8)";
       ring.dataset.scaled = "true";
     };
 
@@ -44,10 +44,17 @@ export default function CustomCursor() {
       rafId = requestAnimationFrame(animate);
     };
 
+    const handleFullscreenChange = () => {
+      fullscreen = !!document.fullscreenElement;
+      document.body.classList.toggle("custom-cursor-active", !fullscreen);
+      ring.style.opacity = fullscreen ? "0" : "1";
+    };
+
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
     rafId = requestAnimationFrame(animate);
 
     document.body.classList.add("custom-cursor-active");
@@ -57,6 +64,7 @@ export default function CustomCursor() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
       cancelAnimationFrame(rafId);
       document.body.classList.remove("custom-cursor-active");
     };

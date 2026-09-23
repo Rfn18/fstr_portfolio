@@ -63,15 +63,11 @@ function Group({ items }: FooterBannerGroupProps) {
   );
 }
 
-function Band({
-  items,
-  className,
-  reverse = false,
-}: FooterBannerBandProps) {
+function Band({ items, className, reverse = false }: FooterBannerBandProps) {
   return (
     <div
       className={cn(
-        "absolute left-1/2 top-1/2 w-[150%] -translate-x-1/2 overflow-hidden bg-surface py-3 text-gray-100 transition-colors duration-700 sm:py-4 md:py-5",
+        "absolute left-1/2 top-1/2 w-[150%] -translate-x-1/2 overflow-hidden bg-surface py-3 text-gray-100 transition-colors duration-700 ease-in-out sm:py-4 md:py-5 dark:bg-gray-100 dark:text-black",
         className,
       )}
     >
@@ -90,7 +86,7 @@ function Band({
 
 export default function FooterBanner() {
   return (
-    <Section className="overflow-hidden bg-gray-100 py-1 text-black transition-colors duration-700 sm:py-2 md:py-4 lg:py-8 dark:bg-surface dark:text-white">
+    <Section className="overflow-hidden bg-gray-100 py-1 text-black transition-colors duration-700 ease-in-out dark:bg-surface dark:text-white sm:py-2 md:py-4 lg:py-8">
       <div className="relative h-[200px] w-full sm:h-[240px]">
         <Band items={BAND_A} className="-translate-y-[60%] rotate-[6deg]" />
         <Band

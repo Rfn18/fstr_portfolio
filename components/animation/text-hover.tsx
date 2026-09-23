@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
+import { TransitionLink } from "@/app/_transition/TransitionLink";
 import { animate, splitText, stagger, utils } from "animejs";
 import type { TextHoverProps } from "@/props";
 
@@ -71,9 +71,14 @@ export default function TextHover({
 
   if (href) {
     return (
-      <Link href={href} data-hover-root className={className} onClick={onClick}>
+      <TransitionLink
+        href={href}
+        data-hover-root
+        className={className}
+        onClick={onClick}
+      >
         {label}
-      </Link>
+      </TransitionLink>
     );
   }
 

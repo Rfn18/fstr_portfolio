@@ -1,4 +1,3 @@
-// components/animation/split-lines.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -11,7 +10,7 @@ export function SplitLines({
   className,
   duration = 900,
   stagger: gap = 120,
-  enter = "bottom-=10% top", // container bawah -10% ketemu atas elemen
+  enter = "bottom-=10% top",
   leave = "top bottom",
 }: SplitLinesProps) {
   const ref = useRef<HTMLElement>(null);
@@ -60,7 +59,7 @@ export function SplitLines({
         target: el,
         enter,
         onEnter: show,
-        onLeaveBackward: hide, // ganti dari onLeaveForward
+        onLeaveBackward: hide,
       });
     });
 

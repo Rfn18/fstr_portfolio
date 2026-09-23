@@ -6,6 +6,7 @@ import TextHover from "../animation/text-hover";
 import { useRef } from "react";
 import { useMagnetic } from "@/helpers/use-magnetic";
 import type { ArrowButtonProps } from "@/props";
+import { TransitionLink } from "@/app/_transition/TransitionLink";
 
 const colors = {
   accent: {
@@ -69,7 +70,7 @@ export function ArrowButton({
 
   return (
     <div ref={wrapRef} className={cn("mt-2 flex w-fit sm:mt-4", className)}>
-      <Link
+      <TransitionLink
         href={href}
         aria-label={ariaLabel}
         data-hover-root
@@ -119,7 +120,7 @@ export function ArrowButton({
             <ArrowUpRight className={s.icon} />
           </span>
         </span>
-      </Link>
+      </TransitionLink>
     </div>
   );
 }

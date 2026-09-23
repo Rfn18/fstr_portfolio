@@ -21,3 +21,8 @@ export interface HoverTitleProps {
   text: string;
   className?: string;
 }
+
+export interface PillsProps {
+  list: string[];
+  className?: string;
+}

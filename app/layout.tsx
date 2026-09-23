@@ -6,6 +6,7 @@ import Navbar from "@/components/navigation/navbar";
 import Footer from "@/components/footer/footer";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import CustomCursor from "@/components/ui/custom-cursor";
+import { TransitionProvider } from "./_transition/TransitionProvider";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -26,21 +27,22 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Fasterino, a software engineer focused on intelligent digital products.",
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${poppins.variable} ${geistMono.variable} bg-background text-foreground font-sans transition-colors duration-300`}
       >
-        <CustomCursor />
-        <Navbar />
-        <SmoothScroll>{children}</SmoothScroll>
-        <Footer />
+        <TransitionProvider>
+          <CustomCursor />
+          <Navbar />
+          <SmoothScroll>{children}</SmoothScroll>
+          <Footer />
+        </TransitionProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import Link from "next/link";
+import { TransitionLink } from "@/app/_transition/TransitionLink";
 import { useEffect, useRef, useState } from "react";
 import TextHover from "../animation/text-hover";
 import { useMagnetic } from "@/helpers/use-magnetic";
@@ -100,7 +100,7 @@ export default function MobileMenu() {
             <ul className="mt-16 space-y-1 md:mt-4 md:max-w-xs">
               {links.map(({ href, label }) => (
                 <li key={href}>
-                  <Link
+                  <TransitionLink
                     href={href}
                     data-hover-root
                     onClick={() => setOpen(false)}
@@ -111,7 +111,7 @@ export default function MobileMenu() {
                       size={18}
                       className="opacity-60 transition group-hover:rotate-90 group-hover:opacity-100"
                     />
-                  </Link>
+                  </TransitionLink>
                 </li>
               ))}
             </ul>
