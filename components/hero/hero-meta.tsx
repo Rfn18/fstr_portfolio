@@ -1,10 +1,16 @@
-// hero-meta.tsx
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { MessageCircle } from "lucide-react";
+import { heroContent } from "@/data/hero";
 
 const linkClass =
   "inline-flex size-11 items-center justify-center text-neutral-800 transition-colors hover:text-neutral-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800 md:size-auto";
+
+const socialIcons = {
+  linkedin: <FontAwesomeIcon icon={faLinkedinIn} className="h-5 w-5" />,
+  whatsapp: <MessageCircle size={20} />,
+  github: <FontAwesomeIcon icon={faGithub} className="h-5 w-5" />,
+};
 
 export default function HeroMetaLeft() {
   return (
@@ -19,15 +25,18 @@ export default function HeroMetaLeft() {
         aria-label="Social links"
         className="flex items-center gap-2 md:flex-col md:gap-5"
       >
-        <a href="#" aria-label="LinkedIn" className={linkClass}>
-          <FontAwesomeIcon icon={faLinkedinIn} className="h-5 w-5" />
-        </a>
-        <a href="#" aria-label="WhatsApp" className={linkClass}>
-          <MessageCircle size={20} />
-        </a>
-        <a href="#" aria-label="GitHub" className={linkClass}>
-          <FontAwesomeIcon icon={faGithub} className="h-5 w-5" />
-        </a>
+        {heroContent.socialLinks.map(({ href, label, icon }) => (
+          <a
+            key={label}
+            href={href}
+            aria-label={label}
+            className={linkClass}
+            target={href.startsWith("http") ? "_blank" : undefined}
+            rel={href.startsWith("http") ? "noreferrer" : undefined}
+          >
+            {socialIcons[icon]}
+          </a>
+        ))}
       </nav>
     </div>
   );
@@ -40,7 +49,7 @@ export function HeroMetaRight() {
       className="relative mt-5 hidden h-40 w-6 items-center justify-center md:flex"
     >
       <p className="absolute origin-center -rotate-90 whitespace-nowrap uppercase leading-0.5 opacity-70">
-        Fasterino Rafael Vabiansyah
+        {heroContent.name}
       </p>
     </div>
   );

@@ -1,25 +1,9 @@
-import Image from "next/image";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
 import { ArrowButton } from "../ui/arrow-button";
 import ProjectCard from "./project-card";
 import { SplitLines } from "../animation/split-lines";
-import type { ProjectItem } from "@/props";
-
-const projects: ProjectItem[] = [
-  {
-    title: "CCTV Face Recognition",
-    image: "/images/laptop.png",
-    category: "Computer Vision",
-  },
-  {
-    title: "Pasient Tracker",
-    image: "/images/laptop.webp",
-    category: "Landing Page",
-  },
-  { title: "Medistaff", image: "/images/laptop.webp", category: "Web App" },
-  { title: "Schetelebot", image: "/images/laptop  .webp", category: "Bot" },
-];
+import { projects } from "@/data/projects";
 
 export default function Project() {
   return (
@@ -36,7 +20,7 @@ export default function Project() {
         <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:gap-y-4">
           {projects.map((project, index) => (
             <ProjectCard
-              key={index}
+              key={`${project.title}-${index}`}
               title={project.title}
               category={project.category}
               image={project.image}

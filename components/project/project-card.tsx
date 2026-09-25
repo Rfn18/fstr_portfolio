@@ -5,14 +5,19 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HoverTitle from "./hover-title";
 import type { ProjectProps, MarqueeItemProps } from "@/props";
+import { useRouter } from "next/navigation";
 
 export default function ProjectCard({
   title = "Patient Tracker",
   category = "Landing Page",
   image = "/images/laptop.webp",
 }: ProjectProps) {
+  const router = useRouter();
+  function handleClick() {
+    router.push(`/project/${title}`);
+  }
   return (
-    <div className="w-full">
+    <div className="w-full" onClick={handleClick}>
       <div className="flex flex-col">
         <h1 className="text-xl font-medium text-black transition-colors duration-700 sm:hidden dark:text-white">
           {title}

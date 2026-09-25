@@ -5,12 +5,16 @@ import { TransitionLink } from "@/app/_transition/TransitionLink";
 import { useEffect, useRef, useState } from "react";
 import TextHover from "../animation/text-hover";
 import { useMagnetic } from "@/helpers/use-magnetic";
+import { body, email, subject } from "@/data/mail";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/works", label: "Works" },
-  { href: "/contact", label: "Contact" },
+  {
+    href: `/mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+    label: "Contact",
+  },
 ];
 
 const BAR =

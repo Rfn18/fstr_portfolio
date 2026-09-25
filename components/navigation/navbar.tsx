@@ -2,6 +2,7 @@ import Image from "next/image";
 import MobileMenu from "./mobile-menu";
 import TextHover from "../animation/text-hover";
 import { ArrowButton } from "../ui/arrow-button";
+import { body, email, subject } from "@/data/mail";
 
 export default function Navbar() {
   return (
@@ -32,7 +33,7 @@ export default function Navbar() {
             </li>
             <li className="ml-3">
               <ArrowButton
-                href="/contact"
+                href={`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
                 color="dark"
                 size="xs"
                 ariaLabel="Go to contacct page"

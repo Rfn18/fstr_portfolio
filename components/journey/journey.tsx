@@ -2,41 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { journeyHeading, journeyItems } from "@/data/journey";
 import { Container } from "../layout/container";
 import { Section } from "../layout/section";
 import { SplitLines } from "../animation/split-lines";
-import type { JourneyItem, JourneyContentProps } from "@/props";
-
-const JOURNEY_ITEMS: JourneyItem[] = [
-  {
-    year: "2024 — Present",
-    title: "Software Engineering",
-    role: "Student · SMK TI Pelita Nusantara",
-    description:
-      "Building a strong foundation in software engineering through web development, system architecture, and hands-on projects.",
-  },
-  {
-    year: "2024 — Present",
-    title: "Full-Stack Development",
-    role: "Personal & Academic Projects",
-    description:
-      "Designing and building applications across the frontend, backend, database, and API layers.",
-  },
-  {
-    year: "2025 — Present",
-    title: "Computer Vision",
-    role: "Independent Exploration",
-    description:
-      "Exploring intelligent systems through face recognition, object detection, tracking, and real-time video processing.",
-  },
-  {
-    year: "Jun 2026 - Sep 2026",
-    title: "Real-World Experience",
-    role: "Practical Work Experience · RSUD Daha Husada",
-    description:
-      "Applying software engineering in a real-world environment while working across software, computer vision, infrastructure, and IT systems.",
-  },
-];
+import type { JourneyContentProps } from "@/props";
 
 export default function Journey() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -152,8 +122,7 @@ export default function Journey() {
                 as={"h2"}
                 className="mb-16 max-w-3xl text-balance text-center text-2xl font-medium leading-snug tracking-tight transition-colors duration-700 sm:text-3xl md:mb-32"
               >
-                Explore the experiences, projects, and technologies that shape
-                how I build.
+                {journeyHeading}
               </SplitLines>
             </div>
 
@@ -170,9 +139,9 @@ export default function Journey() {
               </div>
 
               <ol className="relative flex flex-col">
-                {JOURNEY_ITEMS.map((item, index) => {
+                {journeyItems.map((item, index) => {
                   const isLeft = index % 2 === 0;
-                  const isLast = index === JOURNEY_ITEMS.length - 1;
+                  const isLast = index === journeyItems.length - 1;
 
                   return (
                     <li

@@ -1,22 +1,11 @@
 import { cn } from "@/lib/utils";
+import { footerBannerBands } from "@/data/footer";
 import { Section } from "../layout/section";
 import type {
   StarburstProps,
   FooterBannerGroupProps,
   FooterBannerBandProps,
 } from "@/props";
-
-const BAND_A = [
-  "Driven by Passion, Built with Code",
-  "Innovative Self-Made Creations",
-  "Tailored Web Solutions",
-];
-
-const BAND_B = [
-  "Custom Web Experiences",
-  "Driven by Passion, Built with Code",
-  "Innovative Self-Made Creations",
-];
 
 function Starburst({ className }: StarburstProps) {
   return (
@@ -88,12 +77,18 @@ export default function FooterBanner() {
   return (
     <Section className="overflow-hidden bg-gray-100 py-1 text-black transition-colors duration-700 ease-in-out dark:bg-surface dark:text-white sm:py-2 md:py-4 lg:py-8">
       <div className="relative h-[200px] w-full sm:h-[240px]">
-        <Band items={BAND_A} className="-translate-y-[60%] rotate-[6deg]" />
-        <Band
-          items={BAND_B}
-          reverse
-          className="-translate-y-[60%] -rotate-[6deg]"
-        />
+        {footerBannerBands.map((band, index) => (
+          <Band
+            key={index}
+            items={band.items}
+            reverse={band.reverse}
+            className={
+              index === 0
+                ? "-translate-y-[60%] rotate-[6deg]"
+                : "-translate-y-[60%] -rotate-[6deg]"
+            }
+          />
+        ))}
       </div>
     </Section>
   );
