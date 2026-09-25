@@ -12,7 +12,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/works", label: "Works" },
   {
-    href: `/mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+    href: `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
     label: "Contact",
   },
 ];

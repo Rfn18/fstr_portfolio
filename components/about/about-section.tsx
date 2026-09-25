@@ -83,18 +83,18 @@ export function AboutSectionSecond() {
             as={"h2"}
             className="col-span-2 text-balance text-2xl font-medium leading-snug tracking-tight text-neutral-900 sm:text-3xl md:col-span-1 md:row-start-1 md:text-[2rem] lg:text-4xl"
           >
-            Driving measurable growth and engagement through thoughtful design
-            and engineering.
+            Building thoughtful digital products through software engineering,
+            modern web technologies, and computer vision.
           </SplitLines>
 
           <SplitLines
             as={"p"}
             className="col-span-2 text-pretty text-base leading-relaxed text-neutral-700 sm:text-lg md:col-span-1 md:row-start-1 md:self-center"
           >
-            Every product I build starts with understanding user goals and
-            translating them into intuitive, high-performance experiences. From
-            concept to launch, I focus on meaningful results—boosting user
-            engagement, retention, and overall business impact.
+            EEvery project I build starts with understanding the problem and
+            finding a practical way to solve it. From designing interfaces to
+            building backend systems and AI-powered solutions, I focus on
+            creating software that is useful, reliable, and built with purpose.
           </SplitLines>
 
           <div className="col-span-1 flex min-w-0 flex-col gap-2 border-t border-neutral-400/60 pt-6 md:row-start-2">
@@ -102,7 +102,7 @@ export function AboutSectionSecond() {
               YEARS OF EXPERIENCE
             </span>
             <span className="text-5xl font-semibold text-neutral-900 sm:text-6xl md:text-7xl">
-              4+
+              2+
             </span>
           </div>
 
@@ -111,7 +111,7 @@ export function AboutSectionSecond() {
               PROJECTS COMPLETED
             </span>
             <span className="text-5xl font-semibold text-neutral-900 sm:text-6xl md:text-7xl">
-              30+
+              10+
             </span>
           </div>
         </div>

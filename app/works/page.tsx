@@ -12,24 +12,9 @@ import {
   gridItemVariants,
   listItemVariants,
 } from "@/helpers/project-animation";
-import type { ProjectItem } from "@/props";
+import { projects } from "@/data/projects";
 
 const GUTTER = "max-w-8xl px-6 md:px-8 lg:px-10";
-
-const projects: ProjectItem[] = [
-  {
-    title: "CCTV Face Recognition",
-    image: "/images/laptop.webp",
-    category: "Computer Vision",
-  },
-  {
-    title: "Pasient Tracker",
-    image: "/images/patient-tracker.webp",
-    category: "Landing Page",
-  },
-  { title: "Medistaff", image: "/images/medistaff.webp", category: "Web App" },
-  { title: "Schetelebot", image: "/images/schetelebot.webp", category: "Bot" },
-];
 
 export default function Work() {
   const [listView, setListView] = useState(false);
@@ -42,9 +27,9 @@ export default function Work() {
             My Work
           </h1>
           <p className="mt-4 max-w-4xl text-pretty text-[15px] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base">
-            Discover my latest projects where design, technology, and creativity
-            come together to craft engaging digital experiences. Below is a
-            collection of my favourites.
+            A collection of projects I&apos;ve built across software
+            engineering, full-stack development, and computer vision. focused
+            on solving real-world problems through technology.
           </p>
         </div>
 
@@ -84,11 +69,12 @@ export default function Work() {
               className="mt-8 grid grid-cols-1 gap-y-8 justify-between sm:grid-cols-2 md:gap-y-6 md:gap-x-8"
             >
               {projects.map((p) => (
-                <motion.div key={p.title} variants={gridItemVariants}>
+                <motion.div key={p.slug} variants={gridItemVariants}>
                   <ProjectCard
+                    slug={p.slug}
                     title={p.title}
                     category={p.category}
-                    image={p.image}
+                    image={p.thumbnail}
                   />
                 </motion.div>
               ))}
@@ -103,11 +89,12 @@ export default function Work() {
               className="mt-8"
             >
               {projects.map((p) => (
-                <motion.div key={p.title} variants={listItemVariants}>
+                <motion.div key={p.slug} variants={listItemVariants}>
                   <ProjectCardList
+                    slug={p.slug}
                     title={p.title}
                     category={p.category}
-                    image={p.image}
+                    image={p.thumbnail}
                   />
                 </motion.div>
               ))}

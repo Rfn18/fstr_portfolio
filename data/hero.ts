@@ -18,17 +18,17 @@ export const heroContent: HeroContent = {
   socialLinks: [
     {
       label: "LinkedIn",
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/fasterino-rafael-work",
       icon: "linkedin",
     },
     {
       label: "WhatsApp",
-      href: "https://wa.me/620000000000",
+      href: "https://wa.me/6289506027877",
       icon: "whatsapp",
     },
     {
       label: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/Rfn18",
       icon: "github",
     },
   ],

@@ -1,4 +1,5 @@
 export interface ProjectProps {
+  slug: string;
   title?: string;
   image?: string;
   category?: string;
@@ -7,6 +8,7 @@ export interface ProjectProps {
 export type ProjectCardProps = ProjectProps;
 
 export interface ProjectItem {
+  slug: string;
   title: string;
   image: string;
   category: string;

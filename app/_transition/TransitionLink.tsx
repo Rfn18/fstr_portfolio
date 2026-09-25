@@ -9,6 +9,17 @@ function getPageName(pathname: string) {
   return seg.charAt(0).toUpperCase() + seg.slice(1);
 }
 
+function isExternalLink(href: string) {
+  return (
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:") ||
+    href.startsWith("http://") ||
+    href.startsWith("https://") ||
+    href.startsWith("//") ||
+    href.startsWith("#")
+  );
+}
+
 export function TransitionLink({
   href,
   children,
@@ -16,6 +27,15 @@ export function TransitionLink({
   ...rest
 }: React.ComponentProps<typeof Link>) {
   const { navigate } = useTransitionCtx();
+  const hrefStr = href.toString();
+
+  if (isExternalLink(hrefStr)) {
+    return (
+      <a href={hrefStr} onClick={onClick} {...rest}>
+        {children}
+      </a>
+    );
+  }
 
   return (
     <Link
@@ -23,7 +43,7 @@ export function TransitionLink({
       onClick={(e) => {
         e.preventDefault();
         onClick?.(e);
-        navigate(href.toString(), getPageName(href.toString()));
+        navigate(hrefStr, getPageName(hrefStr));
       }}
       {...rest}
     >

@@ -35,22 +35,25 @@ export default function Template({ children }: { children: React.ReactNode }) {
       }
 
       const bottomP = { v: 0 };
+      let finished = false;
+
+      const finishEnter = () => {
+        if (finished) return;
+        finished = true;
+        setRevealed(true);
+        isEntering.current = false;
+        resetBusy();
+        requestAnimationFrame(() => {
+          window.dispatchEvent(new Event("transition:revealed"));
+        });
+      };
 
       gsap.set(overlay, { yPercent: 0 });
       gsap.set(bottomPath, { attr: { d: BOTTOM_PATH(0) } });
       gsap.set(text, { opacity: 1, filter: "blur(0px)" });
 
-      gsap
-        .timeline({
-          onComplete: () => {
-            setRevealed(true);
-            isEntering.current = false;
-            resetBusy();
-            requestAnimationFrame(() => {
-              window.dispatchEvent(new Event("transition:revealed"));
-            });
-          },
-        })
+      const tl = gsap
+        .timeline({ onComplete: finishEnter })
         .to({}, { duration: HOLD })
         .to(text, { opacity: 0, filter: "blur(12px)", duration: 0.4 }, 0)
         .to(
@@ -80,6 +83,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
           },
           0.2 + DUR * 0.5,
         );
+
+      return () => {
+        tl.kill();
+        finishEnter();
+        gsap.set(overlay, { yPercent: -100 });
+      };
     },
     { scope: rootRef, dependencies: [pathname] },
   );

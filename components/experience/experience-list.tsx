@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Container } from "../layout/container";
-import { Map, LayoutTemplate, Boxes, Rocket } from "lucide-react";
+import { Map, LayoutTemplate, Boxes, Rocket, Code2, ScanFace, Server } from "lucide-react";
 import { SplitLines } from "../animation/split-lines";
 import type { ExpCardProps } from "@/props";
 
@@ -41,32 +41,32 @@ function ExpCard({ icon: Icon, number, title, description }: ExpCardProps) {
 
 const experiences: ExpCardProps[] = [
   {
-    icon: Map,
+    icon: Code2,
     number: "01",
-    title: "Full Stack Development",
+    title: "Full-Stack Development",
     description:
-      "Building scalable and high-performance web applications using Next.js, React, Node.js, and TypeScript, with robust backend architectures, secure RESTful APIs, and clean code practices.",
+      "Building responsive and scalable web applications with Next.js, React, TypeScript, Laravel, and modern backend technologies.",
+  },
+  {
+    icon: ScanFace,
+    number: "02",
+    title: "Computer Vision & AI",
+    description:
+      "Developing real-time computer vision systems for face recognition, person detection, tracking, and people counting.",
   },
   {
     icon: LayoutTemplate,
-    number: "02",
-    title: "UI/UX Design & Frontend",
-    description:
-      "Designing modern, responsive interfaces with Figma, Tailwind CSS, and Framer Motion. Creating intuitive experiences with clean design systems and pixel-perfect implementations.",
-  },
-  {
-    icon: Boxes,
     number: "03",
-    title: "SaaS Development",
+    title: "UI/UX & Frontend",
     description:
-      "Developing subscription-based SaaS products, managing billing, auth, and multi-tenant architecture.",
+      "Designing and implementing clean, responsive interfaces with Figma, Tailwind CSS, and Framer Motion, focusing on usability and visual consistency.",
   },
   {
-    icon: Rocket,
+    icon: Server,
     number: "04",
-    title: "Product Strategy & Deployment",
+    title: "Backend & System Development",
     description:
-      "Planning release roadmaps, optimizing CI/CD pipelines, and deploying production-ready applications with monitoring and performance tuning.",
+      "Designing backend systems, RESTful APIs, database architectures, and real-time services for reliable and maintainable applications.",
   },
 ];
 

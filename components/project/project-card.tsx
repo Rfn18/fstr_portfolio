@@ -6,15 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import HoverTitle from "./hover-title";
 import type { ProjectProps, MarqueeItemProps } from "@/props";
 import { useRouter } from "next/navigation";
+import { useTransitionCtx } from "@/app/_transition/TransitionProvider";
 
 export default function ProjectCard({
+  slug,
   title = "Patient Tracker",
   category = "Landing Page",
   image = "/images/laptop.webp",
 }: ProjectProps) {
-  const router = useRouter();
+  const { navigate } = useTransitionCtx();
+
   function handleClick() {
-    router.push(`/project/${title}`);
+    navigate(`/project/${slug}`, title);
   }
   return (
     <div className="w-full" onClick={handleClick}>
@@ -57,15 +60,21 @@ export default function ProjectCard({
 }
 
 export function ProjectCardList({
+  slug,
   title = "Patient Tracker",
   image = "/images/laptop.webp",
   category = "Landing Page",
 }: ProjectProps) {
   const [hovered, setHovered] = useState(false);
+  const { navigate } = useTransitionCtx();
 
+  function handleClick() {
+    navigate(`/project/${slug}`, title);
+  }
   return (
     <div
       data-hover-root
+      onClick={handleClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="group relative overflow-hidden border-b border-black/10 px-2 py-6 md:py-8 dark:border-white/10"

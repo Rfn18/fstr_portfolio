@@ -20,10 +20,11 @@ export default function Project() {
         <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:gap-y-4">
           {projects.map((project, index) => (
             <ProjectCard
+              slug={project.slug}
               key={`${project.title}-${index}`}
               title={project.title}
               category={project.category}
-              image={project.image}
+              image={project.images.main}
             />
           ))}
         </div>
