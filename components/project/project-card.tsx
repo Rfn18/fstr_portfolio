@@ -98,7 +98,7 @@ export function ProjectCardList({
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             className="absolute inset-0 z-20 flex items-center overflow-hidden bg-black"
           >
             <div className="flex shrink-0 animate-marquee-project items-center gap-10 whitespace-nowrap">
