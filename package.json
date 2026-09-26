@@ -41,7 +41,12 @@
     "typescript": "^5"
   },
   "browserslist": [
-    "iOS >= 12",
-    "defaults"
+    ">0.2%",
+    "not dead",
+    "not op_mini all",
+    "iOS >= 13",
+    "Safari >= 13",
+    "Chrome >= 80",
+    "Android >= 80"
   ]
 }
