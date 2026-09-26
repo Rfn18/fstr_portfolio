@@ -39,18 +39,10 @@ export default function RootLayout({
       <head>
         <Script id="error-catcher" strategy="beforeInteractive">
           {`
-    function showErr(msg) {
-      var div = document.createElement('div');
-      div.style.cssText = 'position:fixed;top:0;left:0;right:0;background:red;color:white;z-index:999999;padding:8px;font-size:12px;word-break:break-all;max-height:200px;overflow:auto;';
-      div.innerText = msg;
-      document.body.appendChild(div);
-    }
-    window.onerror = function(msg, url, line, col) {
-      showErr('ERR: ' + msg + ' @ ' + url + ':' + line + ':' + col);
-    };
-    window.addEventListener('unhandledrejection', function(e) {
-      showErr('PROMISE REJECTED: ' + (e.reason?.message || e.reason));
-    });
+    var div = document.createElement('div');
+    div.style.cssText = 'position:fixed;top:0;left:0;right:0;background:red;color:white;z-index:999999;padding:8px;font-size:14px;';
+    div.innerText = 'SCRIPT TEST - JIKA INI MUNCUL BERARTI SCRIPT JALAN';
+    document.body.appendChild(div);
   `}
         </Script>
       </head>
