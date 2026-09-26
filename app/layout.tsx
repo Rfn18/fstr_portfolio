@@ -7,6 +7,7 @@ import Footer from "@/components/footer/footer";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 import CustomCursor from "@/components/ui/custom-cursor";
 import { TransitionProvider } from "./_transition/TransitionProvider";
+import { DebugEruda } from "@/components/ui/debug-eruda";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -41,6 +42,7 @@ export default function RootLayout({
           <CustomCursor />
           <Navbar />
           <SmoothScroll>{children}</SmoothScroll>
+          <DebugEruda />
           <Footer />
         </TransitionProvider>
       </body>
