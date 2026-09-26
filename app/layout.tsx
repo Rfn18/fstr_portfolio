@@ -39,13 +39,19 @@ export default function RootLayout({
       <head>
         <Script id="error-catcher" strategy="beforeInteractive">
           {`
-            window.onerror = function(msg, url, line, col, error) {
-              var div = document.createElement('div');
-              div.style.cssText = 'position:fixed;top:0;left:0;right:0;background:red;color:white;z-index:999999;padding:8px;font-size:12px;word-break:break-all;';
-              div.innerText = 'ERR: ' + msg + ' @ ' + url + ':' + line + ':' + col;
-              document.body.appendChild(div);
-            };
-          `}
+    function showErr(msg) {
+      var div = document.createElement('div');
+      div.style.cssText = 'position:fixed;top:0;left:0;right:0;background:red;color:white;z-index:999999;padding:8px;font-size:12px;word-break:break-all;max-height:200px;overflow:auto;';
+      div.innerText = msg;
+      document.body.appendChild(div);
+    }
+    window.onerror = function(msg, url, line, col) {
+      showErr('ERR: ' + msg + ' @ ' + url + ':' + line + ':' + col);
+    };
+    window.addEventListener('unhandledrejection', function(e) {
+      showErr('PROMISE REJECTED: ' + (e.reason?.message || e.reason));
+    });
+  `}
         </Script>
       </head>
       <body
