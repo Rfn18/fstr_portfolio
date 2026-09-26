@@ -60,7 +60,7 @@ export const projects: Project[] = [
       "Mengidentifikasi dan mengatasi bottleneck delay database/broadcast pasca-match lewat logging khusus",
       "Menyediakan visibilitas real-time terhadap kesehatan sistem lewat dashboard monitoring",
     ],
-    video: "/videos/project/face_recognize_video.mp4",
+    video: "/videos/projects/face_recognize_video.mp4",
   },
   {
     slug: "patient-tracker",
