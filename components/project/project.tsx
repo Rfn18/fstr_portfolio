@@ -31,7 +31,7 @@ export default function Project() {
 
         <div className="mt-8 flex w-full items-center justify-center md:mt-10">
           <ArrowButton
-            href="/projects"
+            href="/works"
             color="accent"
             size="md"
             ariaLabel="Go to projects page"

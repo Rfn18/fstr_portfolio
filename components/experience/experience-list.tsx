@@ -3,7 +3,15 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Container } from "../layout/container";
-import { Map, LayoutTemplate, Boxes, Rocket, Code2, ScanFace, Server } from "lucide-react";
+import {
+  Map,
+  LayoutTemplate,
+  Boxes,
+  Rocket,
+  Code2,
+  ScanFace,
+  Server,
+} from "lucide-react";
 import { SplitLines } from "../animation/split-lines";
 import type { ExpCardProps } from "@/props";
 
@@ -23,7 +31,7 @@ function ExpCard({ icon: Icon, number, title, description }: ExpCardProps) {
           </span>
         </div>
 
-        <div className="flex min-h-0 max-w-[85%] items-start md:min-h-16">
+        <div className="flex min-h-14 items-start sm:min-h-[4.5rem] md:min-h-[5.5rem]">
           <h3 className="text-2xl font-medium leading-snug tracking-tight text-foreground sm:text-3xl md:text-4xl">
             {title}
           </h3>

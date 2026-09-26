@@ -16,6 +16,7 @@ export interface Project {
   responsibilities: string[];
   impact: string[];
   video?: string;
+  platform: "mobile" | "desktop";
 }
 
 export const projects: Project[] = [
@@ -23,10 +24,14 @@ export const projects: Project[] = [
     slug: "cctv-face-recognition",
     title: "CCTV Face Recognition",
     category: "Computer Vision",
+    platform: "desktop",
     thumbnail: "/images/projects/cctv_face_recog/face_recog_thumb1.png",
     images: {
       main: "/images/projects/cctv_face_recog/face_recog_thumb1.png",
-      secondary: ["/images/laptop.webp", "/images/laptop.webp"],
+      secondary: [
+        "/images/projects/cctv_face_recog/face_recog_3.png",
+        "/images/projects/cctv_face_recog/face_recog_1.jpeg",
+      ],
     },
     client: "RSUD Daha Husada",
     techStack: [
@@ -55,40 +60,20 @@ export const projects: Project[] = [
       "Mengidentifikasi dan mengatasi bottleneck delay database/broadcast pasca-match lewat logging khusus",
       "Menyediakan visibilitas real-time terhadap kesehatan sistem lewat dashboard monitoring",
     ],
-    video: "/videos/project/FACE_RECOGNIZE.mp4",
-  },
-  {
-    slug: "cctv-people-counting",
-    title: "CCTV People Counting",
-    category: "Computer Vision",
-    thumbnail: "/images/laptop.webp",
-    images: {
-      main: "/images/laptop.webp",
-      secondary: ["/images/laptop.webp", "/images/laptop.webp"],
-    },
-    client: "RSUD Daha Husada",
-    techStack: ["Python", "YOLOv8", "CVAT", "Nuclio"],
-    desc: "Sistem penghitungan jumlah orang dan okupansi ruangan berbasis CCTV di RSUD Daha Husada, dengan pipeline ML self-hosted penuh untuk menggantikan Roboflow demi kepentingan privasi data.",
-    role: "Computer Vision Developer",
-    responsibilities: [
-      "Membangun pipeline anotasi dan fine-tuning YOLOv8s secara self-hosted menggunakan CVAT + Nuclio",
-      "Menerapkan active learning dengan perceptual hashing untuk seleksi data",
-      "Mengembangkan logika counting berbasis zona (centroid-in-polygon) dengan zone_polygon ternormalisasi",
-      "Merancang 4 mode counting per kamera: full screen count, zone count, line cross count, none",
-    ],
-    impact: [
-      "Menghilangkan ketergantungan pada layanan pihak ketiga (Roboflow) untuk data sensitif rumah sakit",
-      "Memberikan fleksibilitas mode counting per kamera sesuai kebutuhan tiap area",
-    ],
+    video: "/videos/project/face_recognize_video.mp4",
   },
   {
     slug: "patient-tracker",
     title: "Patient Tracker",
     category: "Web App",
-    thumbnail: "/images/laptop.webp",
+    platform: "mobile",
+    thumbnail: "/images/projects/patient_tracker/patient_tracker_thumb.png",
     images: {
-      main: "/images/laptop.webp",
-      secondary: ["/images/laptop.webp", "/images/laptop.webp"],
+      main: "/images/projects/patient_tracker/patient_tracker_thumb.png",
+      secondary: [
+        "/images/projects/patient_tracker/patient_tracker_1.jpeg",
+        "/images/projects/patient_tracker/patient_tracker_2.jpeg",
+      ],
     },
     client: "RSUD Daha Husada",
     techStack: [
@@ -111,15 +96,20 @@ export const projects: Project[] = [
       "Meningkatkan transparansi alur pasien bagi staf rumah sakit secara real-time",
       "Menjamin keamanan data pasien lewat URL terenkripsi tanpa mengekspos identitas langsung",
     ],
+    video: "/videos/projects/patient_tracker_video.mp4",
   },
   {
     slug: "medistaff",
     title: "Medistaff",
     category: "Web App",
-    thumbnail: "/images/laptop.webp",
+    platform: "desktop",
+    thumbnail: "/images/projects/medistaff/medistaff_thumb.png",
     images: {
-      main: "/images/laptop.webp",
-      secondary: ["/images/laptop.webp", "/images/laptop.webp"],
+      main: "/images/projects/medistaff/medistaff_thumb.png",
+      secondary: [
+        "/images/projects/medistaff/medistaff_3.png",
+        "/images/projects/medistaff/medistaff_2.png",
+      ],
     },
     client: "RSUD Daha Husada",
     techStack: ["Laravel", "MySQL"],
@@ -136,10 +126,14 @@ export const projects: Project[] = [
     slug: "oss67",
     title: "OSS67",
     category: "Web App",
+    platform: "desktop",
     thumbnail: "/images/projects/oss67/oss67_thumb.png",
     images: {
       main: "/images/projects/oss67/oss67_thumb.png",
-      secondary: ["/images/laptop.webp", "/images/laptop.webp"],
+      secondary: [
+        "/images/projects/oss67/oss67(1).png",
+        "/images/projects/oss67/oss67(2).png",
+      ],
     },
     client: "SMK Kesehatan Bhakti Wiyata & SMK TI Pelita Nusantara",
     techStack: [
@@ -163,5 +157,6 @@ export const projects: Project[] = [
       "Menyediakan platform terpusat untuk manajemen event dan galeri dokumentasi organisasi siswa",
       "Deployment stabil di Vercel setelah resolusi berbagai isu lintas platform",
     ],
+    video: "/videos/projects/oss67_video.mp4",
   },
 ];

@@ -72,6 +72,7 @@ export function AboutSectionSecond() {
               alt="Fasterino"
               fill
               priority
+              quality={90}
               sizes="(min-width: 1200px) 1152px, 100vw"
               className="object-cover"
             />

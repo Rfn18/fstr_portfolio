@@ -35,6 +35,7 @@ export default function ProjectCard({
           src={image}
           width={1200}
           height={800}
+          quality={90}
           sizes="(min-width: 768px) 50vw, calc(100vw - 2rem)"
           alt={title}
           className="h-56 w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 motion-reduce:transition-none sm:h-64 md:h-72 lg:h-112"
@@ -109,7 +110,7 @@ export function ProjectCardList({
               aria-hidden="true"
               className="flex shrink-0 animate-marquee-project items-center gap-10 whitespace-nowrap"
             >
-              {Array.from({ length: 10 }).map((_, i) => (
+              {Array.from({ length: 6 }).map((_, i) => (
                 <MarqueeItem key={i} title={title} image={image} />
               ))}
             </div>
@@ -127,7 +128,13 @@ function MarqueeItem({
   return (
     <div className="flex shrink-0 items-center gap-10">
       <div className="relative h-12 w-24 shrink-0 overflow-hidden rounded-full md:h-12 md:w-42">
-        <Image src={image} fill sizes="200px" alt="" className="object-cover" />
+        <Image
+          src={image}
+          fill
+          sizes="200px"
+          alt={"/images/laptop.webp"}
+          className="object-cover"
+        />
       </div>
       <span className="text-2xl font-medium tracking-wide text-gray-100 uppercase">
         {title}

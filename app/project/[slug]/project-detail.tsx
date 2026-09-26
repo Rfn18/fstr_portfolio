@@ -11,6 +11,7 @@ import { VideoPlayer } from "@/components/ui/video-player";
 import WideningSection from "@/components/animation/widening-section";
 import { useScrollTheme } from "@/hooks/use-scroll-theme";
 import { Project } from "@/data/projects";
+import { cn } from "@/lib/utils";
 
 const PILL_CLASS =
   "rounded-full bg-black px-3 py-1.5 text-xs font-medium text-white dark:bg-white dark:text-black hover:opacity-80 transition-opacity sm:px-4 sm:py-2 sm:text-sm";
@@ -23,6 +24,7 @@ export function ProjectDetail({ showcase }: ProjectDetailProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const darkStartRef = useRef<HTMLDivElement>(null);
   const lightResumeRef = useRef<HTMLDivElement>(null);
+  const isMobile = showcase.platform === "mobile";
 
   const sections = useMemo(
     () => [
@@ -81,18 +83,19 @@ export function ProjectDetail({ showcase }: ProjectDetailProps) {
           </div>
         </div>
 
-        {/* Hero image */}
+        {/* Hero image — portrait untuk mobile app, landscape untuk desktop/web */}
         <WideningSection
           fromY="15vh"
           from="90%"
           offset={["start end", "end start"]}
           wrapperClassName="dark:bg-surface transition-colors duration-700 ease-in-out"
         >
-          <div className="relative mt-6 mb-32 h-[50vh] w-full overflow-hidden rounded-xl sm:h-[60vh] md:h-[75vh] lg:mt-12 lg:h-[90vh] dark:bg-surface transition-colors duration-700 ease-in-out  ">
+          <div className="relative mt-6 mb-32 h-[50vh] w-full overflow-hidden rounded-xl sm:h-[60vh] md:h-[75vh] lg:mt-12 lg:h-[90vh] dark:bg-surface transition-colors duration-700 ease-in-out">
             <Image
               src={showcase.images.main}
               alt={`${showcase.title} project preview`}
               fill
+              quality={100}
               priority
               sizes="100vw"
               className="object-cover"
@@ -140,19 +143,36 @@ export function ProjectDetail({ showcase }: ProjectDetailProps) {
             </div>
           </div>
 
-          {/* Photo gallery */}
-          <div className="grid grid-cols-1 gap-3 px-3 py-8 sm:grid-cols-2 sm:gap-4 sm:px-4 md:gap-8 md:px-8">
+          {/* Photo gallery — grid rapat berjajar untuk screenshot portrait, 2 kolom untuk landscape */}
+          <div
+            className={cn(
+              "gap-3 px-3 py-8 sm:gap-4 sm:px-4 md:gap-8 md:px-8",
+              isMobile
+                ? "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+                : "grid grid-cols-1 sm:grid-cols-2",
+            )}
+          >
             {showcase.images.secondary.map((src, j) => (
               <div
                 key={j}
-                className="relative h-[180px] overflow-hidden rounded-lg sm:h-[320px] md:h-[450px] lg:h-[600px]"
+                className={cn(
+                  "relative overflow-hidden rounded-lg bg-gray-200 dark:bg-neutral-800",
+                  isMobile
+                    ? "aspect-[9/19.5]"
+                    : "h-[180px] sm:h-[320px] md:h-[450px] lg:h-[600px]",
+                )}
               >
                 <Image
                   src={src}
                   alt={`${showcase.title} screenshot ${j + 1}`}
                   fill
-                  sizes="(min-width: 1200px) 576px, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover"
+                  quality={100}
+                  sizes={
+                    isMobile
+                      ? "(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
+                      : "(min-width:640px) 50vw, 100vw"
+                  }
+                  className={isMobile ? "object-contain" : "object-cover"}
                 />
               </div>
             ))}
@@ -180,7 +200,7 @@ export function ProjectDetail({ showcase }: ProjectDetailProps) {
             </div>
           </div>
 
-          {/* Demo video */}
+          {/* Demo video — portrait player untuk mobile app */}
           {showcase.video && (
             <WideningSection
               fromY="15vh"
@@ -190,7 +210,13 @@ export function ProjectDetail({ showcase }: ProjectDetailProps) {
               <VideoPlayer
                 src={showcase.video}
                 label={`Demo of the ${showcase.title} system`}
-                className="h-[40vh] sm:h-[50vh] md:h-[70vh] lg:h-[90vh]"
+                fit={isMobile ? "contain" : "cover"}
+                className={cn(
+                  "mx-auto",
+                  isMobile
+                    ? "aspect-[9/19.5] h-[65vh] max-h-[720px] w-auto sm:h-[70vh] lg:h-[80vh]"
+                    : "h-[40vh] w-full sm:h-[50vh] md:h-[70vh] lg:h-[90vh]",
+                )}
               />
             </WideningSection>
           )}

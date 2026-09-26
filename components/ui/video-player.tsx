@@ -16,10 +16,12 @@ export function VideoPlayer({
   src,
   label,
   className = "",
+  fit = "cover",
 }: {
   src: string;
   label: string;
   className?: string;
+  fit?: "cover" | "contain";
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -110,7 +112,7 @@ export function VideoPlayer({
         playsInline
         loop
         aria-label={label}
-        className="h-full w-full object-cover"
+        className={`h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
         onClick={togglePlay}
       />
 
