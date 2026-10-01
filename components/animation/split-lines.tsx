@@ -27,6 +27,19 @@ export function SplitLines({
     ).matches;
     const split = splitText(el, { lines: { wrap: "clip" } });
 
+    let lastWidth = el.offsetWidth;
+    const ro = new ResizeObserver(() => {
+      const w = el.offsetWidth;
+      if (Math.abs(w - lastWidth) < 2) return;
+      lastWidth = w;
+      split.refresh();
+    });
+    ro.observe(el);
+
+    document.fonts?.ready.then(() => {
+      if (active) split.refresh();
+    });
+
     split.addEffect(({ lines }) => {
       if (!active) return;
       el.style.opacity = "1";
@@ -65,6 +78,7 @@ export function SplitLines({
 
     return () => {
       active = false;
+      ro.disconnect();
       scroll?.revert();
       split.revert();
     };

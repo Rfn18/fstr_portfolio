@@ -65,7 +65,7 @@ export function AboutSectionSecond() {
       </div>
 
       <div className="mx-auto w-full px-4 min-[1200px]:px-0">
-        <RevealOnScroll className="relative mt-12 h-[70svh] max-h-[640px] min-h-[420px] w-full sm:mt-16 sm:h-[80svh] md:mt-30 lg:h-[90vh] lg:max-h-none">
+        <RevealOnScroll className="relative mt-12 h-[70svh] max-h-[40rem] min-h-[26.25rem] w-full sm:mt-16 sm:h-[80svh] md:mt-30 lg:h-[90vh] lg:max-h-none">
           <div className="relative h-full w-full">
             <Image
               src="/images/me-sitting.jpg"
@@ -82,7 +82,7 @@ export function AboutSectionSecond() {
         <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 md:mt-10 md:grid-rows-[auto_auto] md:gap-x-16 md:gap-y-10">
           <SplitLines
             as={"h2"}
-            className="col-span-2 text-balance text-2xl font-medium leading-snug tracking-tight text-neutral-900 sm:text-3xl md:col-span-1 md:row-start-1 md:text-[2rem] lg:text-4xl"
+            className="col-span-2 w-full text-2xl font-medium md:gap-x-20 leading-snug tracking-tight text-neutral-900 sm:text-3xl md:col-span-1 md:row-start-1 md:text-[2rem] lg:text-4xl"
           >
             Building thoughtful digital products through software engineering,
             modern web technologies, and computer vision.
@@ -90,9 +90,9 @@ export function AboutSectionSecond() {
 
           <SplitLines
             as={"p"}
-            className="col-span-2 text-pretty text-base leading-relaxed text-neutral-700 sm:text-lg md:col-span-1 md:row-start-1 md:self-center"
+            className="col-span-2 text-pretty text-base leading-relaxed text-neutral-700 sm:text-lg md:col-span-1 md:gap-x-12 md:row-start-1"
           >
-            EEvery project I build starts with understanding the problem and
+            Every project I build starts with understanding the problem and
             finding a practical way to solve it. From designing interfaces to
             building backend systems and AI-powered solutions, I focus on
             creating software that is useful, reliable, and built with purpose.

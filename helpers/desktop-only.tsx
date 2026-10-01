@@ -1,4 +1,3 @@
-// helpers/desktop-only.tsx
 "use client";
 
 import { useSyncExternalStore } from "react";
@@ -12,7 +11,7 @@ function useMediaQuery(query: string) {
       return () => m.removeEventListener("change", cb);
     },
     () => window.matchMedia(query).matches,
-    () => false, // SSR: tidak render
+    () => false, 
   );
 }
 

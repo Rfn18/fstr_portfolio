@@ -39,8 +39,8 @@ export default function Footer() {
         <FooterBanner />
       </CurvedSection>
 
-      <div className="relative h-svh md:min-h-[640px] [clip-path:inset(0)]">
-        <footer className="fixed bottom-0 left-0 h-svh w-full overflow-hidden bg-surface text-white md:min-h-[640px]">
+      <div className="relative h-svh md:min-h-[40rem] [clip-path:inset(0)]">
+        <footer className="fixed bottom-0 left-0 h-svh w-full overflow-hidden bg-surface text-white md:min-h-[40rem]">
           <div className="flex flex-col gap-10 px-4 pb-[max(3rem,env(safe-area-inset-bottom))] pt-16 md:flex-row md:justify-between md:px-8 md:pb-0 md:pt-25">
             <div className="grid grid-cols-2 gap-x-8 gap-y-8 sm:flex sm:flex-wrap sm:gap-x-12">
               <Column title="Links" items={footerNavItems} />

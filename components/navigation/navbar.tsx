@@ -47,7 +47,7 @@ export default function Navbar() {
         <div
           id="nav-sentinel"
           aria-hidden="true"
-          className="pointer-events-none absolute left-0 top-[220px] size-px"
+          className="pointer-events-none absolute left-0 top-[13.75rem] size-px"
         />
       </div>
       <MobileMenu />

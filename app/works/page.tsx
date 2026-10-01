@@ -23,10 +23,10 @@ export default function Work() {
     <Section className="pt-24 pb-6 sm:pt-0 sm:pb-8 md:pt-0 md:pb-8 lg:pt-8 lg:pb-10">
       <Container className={GUTTER}>
         <div>
-          <h1 className="text-balance self-start text-4xl font-light sm:text-6xl lg:text-[80px]">
+          <h1 className="text-balance self-start text-4xl font-light sm:text-6xl lg:text-[5rem]">
             My Work
           </h1>
-          <p className="mt-4 max-w-4xl text-pretty text-[15px] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base">
+          <p className="mt-4 max-w-4xl text-pretty text-[0.9375rem] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base">
             A collection of projects I&apos;ve built across software
             engineering, full-stack development, and computer vision. focused
             on solving real-world problems through technology.
@@ -36,7 +36,7 @@ export default function Work() {
         <div className="flex items-center gap-x-1 mt-8 justify-end">
           <button
             onClick={() => setListView(false)}
-            className={`p-2 flex items-center justify-center rounded-[8px] transition-colors duration-300 ${
+            className={`p-2 flex items-center justify-center rounded-[0.5rem] transition-colors duration-300 ${
               !listView ? "bg-surface" : ""
             }`}
           >
@@ -47,7 +47,7 @@ export default function Work() {
           </button>
           <button
             onClick={() => setListView(true)}
-            className={`p-2 flex items-center justify-center rounded-[8px] transition-colors duration-300 ${
+            className={`p-2 flex items-center justify-center rounded-[0.5rem] transition-colors duration-300 ${
               listView ? "bg-surface" : ""
             }`}
           >

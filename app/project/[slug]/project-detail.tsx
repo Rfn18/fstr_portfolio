@@ -159,7 +159,7 @@ export function ProjectDetail({ showcase }: ProjectDetailProps) {
                   "relative overflow-hidden rounded-lg bg-gray-200 dark:bg-neutral-800",
                   isMobile
                     ? "aspect-[9/19.5]"
-                    : "h-[180px] sm:h-[320px] md:h-[450px] lg:h-[600px]",
+                    : "h-[11.25rem] sm:h-[20rem] md:h-[28.125rem] lg:h-[37.5rem]",
                 )}
               >
                 <Image
@@ -214,7 +214,7 @@ export function ProjectDetail({ showcase }: ProjectDetailProps) {
                 className={cn(
                   "mx-auto",
                   isMobile
-                    ? "aspect-[9/19.5] h-[65vh] max-h-[720px] w-auto sm:h-[70vh] lg:h-[80vh]"
+                    ? "aspect-[9/19.5] h-[65vh] max-h-[45rem] w-auto sm:h-[70vh] lg:h-[80vh]"
                     : "h-[40vh] w-full sm:h-[50vh] md:h-[70vh] lg:h-[90vh]",
                 )}
               />

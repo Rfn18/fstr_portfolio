@@ -148,7 +148,7 @@ export default function Journey() {
                       key={item.title}
                       className={cn(
                         "relative grid grid-cols-1 md:grid-cols-2",
-                        isLast ? "min-h-0" : "min-h-0 md:min-h-[220px]",
+                        isLast ? "min-h-0" : "min-h-0 md:min-h-[13.75rem]",
                       )}
                     >
                       <div

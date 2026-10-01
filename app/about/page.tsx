@@ -70,13 +70,13 @@ export default function About() {
         <Container className={GUTTER}>
           <SplitLines
             as={"h1"}
-            className="text-balance self-start text-4xl font-light sm:text-6xl lg:text-[80px]"
+            className="text-balance self-start text-4xl font-light sm:text-6xl lg:text-[5rem]"
           >
             About Me
           </SplitLines>
           <SplitLines
             as={"p"}
-            className="mt-4 max-w-4xl text-pretty text-[15px] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base"
+            className="mt-4 max-w-4xl text-pretty text-[0.9375rem] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base"
           >
             I&apos;m a Software Engineering student focused on building useful
             software through full-stack development, computer vision, and modern
@@ -114,7 +114,7 @@ export default function About() {
                 <SplitLines
                   as={"p"}
                   key={i}
-                  className="text-pretty text-[15px] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base"
+                  className="text-pretty text-[0.9375rem] leading-7 [word-spacing:0.25em] text-surface/60 sm:text-base"
                 >
                   {text}
                 </SplitLines>
